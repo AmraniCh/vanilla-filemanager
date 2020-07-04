@@ -18,11 +18,10 @@
 
 .btn-primary {
   @extend %btn;
-
-  background-color: $primaryBlue;
+  background-color: $mainColor;
   color: #FFF;
 
   &:hover {
-    background-color: darken($primaryBlue, 7%);
+    background-color: darken($mainColor, 7%);
   }
 }

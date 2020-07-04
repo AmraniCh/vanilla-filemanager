@@ -1,5 +1,9 @@
 @mixin vertical-center() {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin font($font) {
+    font-family: $font, Helvetica, sans-serif;
 }
