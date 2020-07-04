@@ -4,7 +4,7 @@ module.exports = {
             browsers: [
                 "last 2 versions",
                 "> 0.2%",
-                "ie >= 8"
+                "ie >= 9"
             ]
         }
     }

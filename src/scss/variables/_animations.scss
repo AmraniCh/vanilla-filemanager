@@ -1,0 +1,10 @@
+@keyframes sidebarContentAnimation {
+  from {
+    transform: translateY(-5%);
+    opacity: .4;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,92 @@
+$sidebarBackColor: $lightGray;
+$brandBackColor: $primaryBlue;
+
+$sidebarWidth: 270px;
+$brandHeight: 80px;
+$bottomHeight: 65px;
+$filesListHeight: calc(100% - (#{$brandHeight} + #{$bottomHeight}));
+
+.fm-wrapper {
+  .sidebar {
+    width: $sidebarWidth;
+    height: 100%;
+    float: left;
+    background-color: $sidebarBackColor;
+    border-right: 1px solid #BCBEC0;
+
+    .brand {
+      height: $brandHeight;
+      width: 100%;
+      background-color: $brandBackColor;
+      color: #FFF;
+
+      .link {
+        height: 100%;
+        display: block;
+
+        .name {
+          @include vertical-center();
+          font-size: 3rem;
+          font-weight: bold;
+          letter-spacing: 1px;
+          color: #F3F3F3;
+        }
+      }
+
+      .logo {
+        height: 95%;
+        width: 250px;
+      }
+    }
+
+    ul.files-list {
+      height: $filesListHeight;
+      overflow: auto;
+      padding: 10px 15px;
+      color: $textColor;
+      animation: sidebarContentAnimation .2s ease-in;
+      //transition: transform;
+
+      li.item {
+        padding: 4px;
+        cursor: pointer;
+
+        &.dir-item[data-open=false]:hover, &.file-item:hover {
+          opacity: .8;
+        }
+
+        &[data-open=false] {
+          .icon-expend {
+            display: none;
+          }
+        }
+
+        &[data-open=true] {
+          .icon-contract {
+            display: none;
+          }
+        }
+
+        .icon {
+          user-select: none;
+          margin-right: 5px;
+          vertical-align: middle;
+        }
+
+        .sub-files {
+          transition: all 2s ease;
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .bottom {
+      height: $bottomHeight;
+
+      button {
+        @include vertical-center();
+        width: 70%;
+      }
+    }
+  }
+}
