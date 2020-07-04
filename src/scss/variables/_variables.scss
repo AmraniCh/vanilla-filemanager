@@ -1,0 +1,15 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+// Colors
+$colors: (
+    'fm-blue': #3f4c67,
+    'fm-black': #58595b,
+    'fm-gray': #F1F2F2,
+    'fm-cyan': #71d6fc,
+);
+
+$mainColor: map-get($colors, 'fm-blue');
+$textColor: map-get($colors, 'fm-black');
+$focusColor: map-get($colors, 'fm-cyan');
