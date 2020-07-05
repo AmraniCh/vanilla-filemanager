@@ -2,6 +2,7 @@
 @import "variables/variables";
 @import "variables/root";
 @import "variables/mixins";
+@import "variables/functions";
 @import "variables/animations";
 
 // Base
@@ -10,7 +11,9 @@
 
 // Components
 @import "components/buttons";
+@import "components/input";
 
 // Layout
 @import "modules/global";
 @import "modules/sidebar";
+@import "modules/header";

@@ -1,0 +1,3 @@
+@function font-size($rate) {
+    @return $rootFontSize * $rate;
+}

@@ -1,0 +1,49 @@
+.fm-wrapper {
+    .header {
+        height: 80px;
+        line-height: 80px;
+        padding: 0 25px;
+        background-color: $mainColor;
+        color: #FFF;
+
+        form.search-form {
+            width: 70%;
+
+            label {
+                display: inline-block;
+                width: 100%;
+
+                .svg-icon {
+                    margin-right: 16px;
+                }
+
+                .search-input {
+                    @extend %input;
+                    width: 80%;
+                    height: 45px;
+                    vertical-align: middle;
+                    padding-right: 10px;
+                    padding-left: 10px;
+                    font-size: font-size(2);
+                    font-weight: 300;
+
+                    &::placeholder {
+                        font-style: italic;
+                    }
+
+                    &:focus {
+                        border: none;
+
+                        &::placeholder {
+                            color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+
+        .nav {
+            width: 30%;
+        }
+    }
+}

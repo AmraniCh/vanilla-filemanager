@@ -7,3 +7,9 @@
 @mixin font($font) {
     font-family: $font, Helvetica, sans-serif;
 }
+
+@mixin focus-border() {
+    &:focus {
+        border: 1.8px solid $focusColor;
+    }
+}

@@ -1,22 +1,18 @@
-$sidebarBackColor: map_get($colors, 'lightGray');
-$brandBackColor: $mainColor;
-
-$sidebarWidth: 270px;
 $brandHeight: 80px;
 $bottomHeight: 65px;
 $filesListHeight: calc(100% - (#{$brandHeight} + #{$bottomHeight}));
 
 .fm-wrapper {
     .sidebar {
-        width: $sidebarWidth;
         height: 100%;
-        background-color: $sidebarBackColor;
+        width: 270px;
+        background-color: map_get($colors, 'gray');
         border-right: 1px solid #BCBEC0;
 
         .brand {
             height: $brandHeight;
             width: 100%;
-            background-color: $brandBackColor;
+            background-color: $mainColor;
             color: #FFF;
 
             .link {
@@ -25,10 +21,10 @@ $filesListHeight: calc(100% - (#{$brandHeight} + #{$bottomHeight}));
 
                 .name {
                     @include vertical-center();
-                    font-size: 3rem;
+                    font-size: font-size(3);
                     font-weight: bold;
                     letter-spacing: 1px;
-                    color: #F3F3F3;
+                    color: map_get($colors, 'white');
                 }
             }
 
@@ -66,9 +62,12 @@ $filesListHeight: calc(100% - (#{$brandHeight} + #{$bottomHeight}));
                     }
                 }
 
-                .icon {
+                .svg-icon {
                     user-select: none;
                     margin-right: 5px;
+                }
+
+                .name {
                     vertical-align: middle;
                 }
 

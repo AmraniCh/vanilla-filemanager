@@ -1,7 +1,7 @@
 :root {
 
     @each $key, $value in $colors {
-        --#{$key}: #{$value};
+        --fm-#{$key}: #{$value};
     }
 
 }

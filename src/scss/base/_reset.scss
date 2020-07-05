@@ -1,10 +1,5 @@
-html {
-    font-size: 10px;
-}
-
 body {
     margin: 0;
-    font-size: 16px;
 }
 
 // Scoping the reset rules
@@ -24,5 +19,19 @@ body {
 
     a {
         text-decoration: none;
+    }
+
+    button, input {
+        font-size: font-size(1.6); // Override 13.33px user agent stylesheet
+    }
+
+    input {
+        &:focus {
+            outline: none;
+        }
+    }
+
+    input::placeholder {
+        color: inherit;
     }
 }

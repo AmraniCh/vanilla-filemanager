@@ -1,7 +1,17 @@
-.text-center {
-    text-align: center;
-}
+.fm-wrapper {
+    .text-center {
+        text-align: center;
+    }
 
-.float-lt {
-    float: left;
+    .text-right {
+        text-align: right;
+    }
+
+    .float-lt {
+        float: left;
+    }
+
+    .float-rt {
+        float: right;
+    }
 }
