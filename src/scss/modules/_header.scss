@@ -1,7 +1,7 @@
 .fm-wrapper {
     .header {
-        height: 80px;
-        line-height: 80px;
+        height: 70px;
+        line-height: 70px;
         padding: 0 25px;
         background-color: $mainColor;
         color: #FFF;
@@ -42,8 +42,45 @@
             }
         }
 
-        .nav {
-            width: 30%;
+        .settings-btn-ctr {
+            .slidebar {
+                position: absolute;
+                top: 66px;
+                right: -100px;
+                height: calc(100% - (100px + 76px));
+                width: 100px;
+                background-color: $mainColor;
+                border-top: 4px solid #FFF;
+                transition: .3s;
+
+                ul {
+                    li {
+                        a {
+                            display: inline-block;
+                            width: 100%;
+
+                            &:after {
+                                content: '';
+                                display: block;
+                                height: 4px;
+                                width: 0;
+                                background-color: #FFF;
+                                transition: width .2s;
+                            }
+
+                            &:hover {
+                                &:after {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .slidebar.show {
+                right: 0;
+            }
         }
     }
 }

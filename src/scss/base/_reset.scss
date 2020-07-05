@@ -23,9 +23,7 @@ body {
 
     button, input {
         font-size: font-size(1.6); // Override 13.33px user agent stylesheet
-    }
 
-    input {
         &:focus {
             outline: none;
         }

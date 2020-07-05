@@ -21,6 +21,7 @@
     }
 
     .btn-icon {
+        @include focus-border();
         border: none;
         background-color: transparent;
         color: inherit;
