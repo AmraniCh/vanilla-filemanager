@@ -3,16 +3,30 @@ $toolbarHeight: 45px;
 .fm-wrapper {
     main.fm-main {
         .toolbar {
+            position: relative;
             height: $toolbarHeight;
-            padding: 0 25px;
+            padding: 0 20px;
             border-bottom: 1px solid $borderColor;
-            background-color: map_get($colors, 'gray');
+            background-color: map_get($colors, 'white');
+            z-index: 0;
 
             nav {
                 ul {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+
                     li.toolbar-item {
-                        line-height: $toolbarHeight;
                         margin-right: 15px;
+
+                        &:hover {
+                            background-color: #d0cece;
+                        }
+
+                        svg {
+                            height: 25px;
+                            color: $mainColor;
+                        }
                     }
                 }
             }

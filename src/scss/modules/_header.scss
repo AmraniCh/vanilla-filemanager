@@ -48,6 +48,7 @@ $headerHeight: 70px;
                 right: -100px;
                 height: calc(100% - (100px + #{$headerHeight} + 4px)); // footer + header + border-top
                 width: 100px;
+                z-index: 9;
                 background-color: $mainColor;
                 border-top: 4px solid #FFF;
                 transition: .3s;

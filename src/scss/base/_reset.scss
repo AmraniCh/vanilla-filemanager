@@ -32,4 +32,8 @@ body {
     input::placeholder {
         color: inherit;
     }
+
+    table {
+        border-collapse: collapse;
+    }
 }

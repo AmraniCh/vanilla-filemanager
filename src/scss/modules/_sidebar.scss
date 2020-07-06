@@ -1,3 +1,5 @@
+$sidebarWidth: 270px;
+
 $brandHeight: 70px;
 $bottomHeight: 65px;
 $filesListHeight: calc(100% - (#{$brandHeight} + #{$bottomHeight}));
@@ -5,8 +7,8 @@ $filesListHeight: calc(100% - (#{$brandHeight} + #{$bottomHeight}));
 .fm-wrapper {
     .sidebar {
         height: 100%;
-        width: 270px;
-        background-color: map_get($colors, 'gray');
+        width: $sidebarWidth;
+        background-color: map_get($colors, 'white');
 
         .brand {
             height: $brandHeight;

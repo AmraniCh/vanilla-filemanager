@@ -12,9 +12,11 @@
 // Components
 @import "components/buttons";
 @import "components/input";
+@import "components/checkbox";
 
 // Layout
-@import "modules/global";
 @import "modules/sidebar";
 @import "modules/header";
 @import "modules/toolbar";
+@import "modules/files-table";
+@import "modules/global";

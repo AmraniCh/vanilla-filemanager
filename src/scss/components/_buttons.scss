@@ -27,7 +27,15 @@
     }
 
     .btn-svg {
-        .svg-icon { margin-right: 5px; }
-        .btn-text { vertical-align: middle; }
+        border-radius: 4px;
+
+        svg {
+            vertical-align: bottom;
+            margin-right: 5px;
+        }
+
+        .btn-text {
+            vertical-align: middle;
+        }
     }
 }
