@@ -7,7 +7,6 @@ $filesListHeight: calc(100% - (#{$brandHeight} + #{$bottomHeight}));
         height: 100%;
         width: 270px;
         background-color: map_get($colors, 'gray');
-        border-right: 1px solid #BCBEC0;
 
         .brand {
             height: $brandHeight;

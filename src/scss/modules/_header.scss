@@ -1,9 +1,11 @@
+$headerHeight: 70px;
+
 .fm-wrapper {
     .header {
-        height: 70px;
+        height: $headerHeight;
         line-height: 70px;
         padding: 0 25px;
-        background-color: $mainColor;
+        background-color: $secondaryColor;
         color: #FFF;
 
         form.search-form {
@@ -19,11 +21,12 @@
 
                 .search-input {
                     @extend %input;
-                    width: 80%;
+                    width: calc(100% - 65px);
                     height: 45px;
                     vertical-align: middle;
                     padding-right: 10px;
                     padding-left: 10px;
+                    @include font(arvo);
                     font-size: font-size(2);
                     font-weight: 300;
 
@@ -31,23 +34,19 @@
                         font-style: italic;
                     }
 
-                    &:focus {
-                        border: none;
-
-                        &::placeholder {
-                            color: transparent;
-                        }
+                    &:focus::placeholder {
+                        color: transparent;
                     }
                 }
             }
         }
 
-        .settings-btn-ctr {
+        > div {
             .slidebar {
                 position: absolute;
                 top: 66px;
                 right: -100px;
-                height: calc(100% - (100px + 76px));
+                height: calc(100% - (100px + #{$headerHeight} + 4px)); // footer + header + border-top
                 width: 100px;
                 background-color: $mainColor;
                 border-top: 4px solid #FFF;

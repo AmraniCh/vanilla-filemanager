@@ -9,10 +9,14 @@ $colors: (
     'blue': #3f4c67,
     'black': #58595b,
     'gray': #F1F2F2,
+    'gray-dark': #BCBEC0,
+    'gray-slate': #68808C,
     'white': #F3F3F3,
     'cyan': #71d6fc,
 );
 
 $mainColor: map-get($colors, 'blue');
+$secondaryColor: map_get($colors, 'gray-slate');
 $textColor: map-get($colors, 'black');
 $focusColor: map-get($colors, 'cyan');
+$borderColor: map_get($colors, 'gray-dark');

@@ -29,7 +29,6 @@
                         <path d="M17 3.33337V13H0V2.33337V1C0 0.447715 0.447715 0 1 0H6.54006C6.83199 0 7.10934 0.127565 7.29932 0.349215L9 2.33337H16C16.5523 2.33337 17 2.78109 17 3.33337Z" fill="#58595B"/>
                         <path d="M16.9999 13H-0.00012207L1.36661 4.34404C1.44335 3.85799 1.8623 3.5 2.35437 3.5H17.3296C17.9441 3.5 18.4133 4.049 18.3174 4.65597L16.9999 13Z" fill="#C0C0C0"/>
                     </svg>
-
                     <span class="name">js</span>
                 </li>
 
@@ -85,8 +84,8 @@
                            <input type="text" name="filename" class="search-input" placeholder="Search files ...">
                        </label>
                    </form>
-                    <div class="settings-btn-ctr float-rt">
-                        <button type="button" class="btn-icon toggle-slidebar">
+                    <div class="float-rt">
+                        <button type="button" class="btn-icon-reset toggle-slidebar">
                             <svg class="svg-icon" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M37.6192 9.99996V9.04758C37.6192 7.64758 37.162 7.14282 35.7144 7.14282H3.33347C1.87633 7.14282 1.42871 7.63806 1.42871 9.04758V9.99996C1.42871 11.4762 1.92395 11.9047 3.33347 11.9047H35.7144C37.143 11.9047 37.6192 11.4476 37.6192 9.99996ZM37.6192 20.4762V19.5238C37.6192 18.1238 37.162 17.619 35.7144 17.619H3.33347C1.87633 17.619 1.42871 18.1142 1.42871 19.5238V20.4762C1.42871 21.9523 1.92395 22.3809 3.33347 22.3809H35.7144C37.143 22.3809 37.6192 21.9238 37.6192 20.4762ZM37.6192 30.9523V30C37.6192 28.599 37.162 28.0952 35.7144 28.0952H3.33347C1.87633 28.0952 1.42871 28.5904 1.42871 30V30.9523C1.42871 32.4285 1.92395 32.8571 3.33347 32.8571H35.7144C37.143 32.8571 37.6192 32.4 37.6192 30.9523Z" fill="white"/>
                             </svg>
@@ -120,6 +119,72 @@
                     </div>
             </header>
             <!-- Header End -->
+
+            <!-- Main Start -->
+            <main class="fm-main">
+
+                <!-- Toolbar Start -->
+                <div class="toolbar">
+                    <nav>
+                        <ul class="list-inline">
+                            <li class="toolbar-item">
+                                <button type="button" class="btn-svg btn-icon-reset no-focus">
+                                    <svg class="svg-icon" width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21.5447 9.83614L11.5489 0.21903C11.4769 0.149598 11.3914 0.0945134 11.2973 0.0569295C11.2032 0.0193456 11.1023 0 11.0005 0C10.8986 0 10.7977 0.0193456 10.7036 0.0569295C10.6095 0.0945134 10.524 0.149598 10.452 0.21903L0.456229 9.83614C0.165019 10.1165 0 10.4974 0 10.8946C0 11.7194 0.696477 12.39 1.55312 12.39H2.60633V19.2523C2.60633 19.6659 2.95335 20 3.38289 20H9.44734V14.7662H12.1653V20H18.618C19.0476 20 19.3946 19.6659 19.3946 19.2523V12.39H20.4478C20.8603 12.39 21.2559 12.2334 21.5471 11.9507C22.1514 11.3666 22.1514 10.4203 21.5447 9.83614V9.83614Z" fill="#364F6B"/>
+                                    </svg>
+                                    <span class="btn-text">
+                                        Home
+                                    </span>
+                                </button>
+                            </li>
+                            <li class="toolbar-item">
+                                <button type="button" class="btn-svg btn-icon-reset no-focus">
+                                    <svg class="svg-icon" width="13" height="20" viewBox="0 0 13 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.5603 0.356966L0.515921 8.88871C0.354104 9.02623 0.224213 9.19682 0.135161 9.38878C0.0461077 9.58074 0 9.78952 0 10.0008C0 10.2121 0.0461077 10.4209 0.135161 10.6128C0.224213 10.8048 0.354104 10.9754 0.515921 11.1129L10.5603 19.6446C11.5191 20.4589 13 19.7838 13 18.5325V1.46662C13 0.215361 11.5191 -0.459708 10.5603 0.356966Z" fill="#364F6B"/>
+                                    </svg>
+                                    <span class="btn-text">
+                                        Back
+                                    </span>
+                                </button>
+                            </li>
+                            <li class="toolbar-item">
+                                <button type="button" class="btn-svg btn-icon-reset no-focus">
+                                    <svg class="svg-icon" width="13" height="20" viewBox="0 0 13 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.43967 0.356966L12.4841 8.88871C12.6459 9.02623 12.7758 9.19682 12.8648 9.38878C12.9539 9.58074 13 9.78952 13 10.0008C13 10.2121 12.9539 10.4209 12.8648 10.6128C12.7758 10.8048 12.6459 10.9754 12.4841 11.1129L2.43967 19.6446C1.48092 20.4589 -5.3295e-07 19.7838 -5.3295e-07 18.5325V1.46662C-5.3295e-07 0.215361 1.48092 -0.459708 2.43967 0.356966Z" fill="#364F6B"/>
+                                    </svg>
+                                    <span class="btn-text">
+                                        Forward
+                                    </span>
+                                </button>
+                            </li>
+                            <li class="toolbar-item">
+                                <button type="button" class="btn-svg btn-icon-reset no-focus">
+                                    <svg class="svg-icon" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M21.75 6V21.75H6V6H21.75ZM21.75 3.75H6C4.7625 3.75 3.75 4.7625 3.75 6V21.75C3.75 22.9875 4.7625 24 6 24H21.75C22.9875 24 24 22.9875 24 21.75V6C24 4.7625 22.9875 3.75 21.75 3.75Z" fill="#364F6B"/>
+                                        <path d="M11.7902 16.6924L8.58982 13.6605L7.5 14.6857L11.7902 18.75L21 10.0252L19.9179 9L11.7902 16.6924Z" fill="#364F6B"/>
+                                    </svg>
+                                    <span class="btn-text">
+                                        Select All
+                                    </span>
+                                </button>
+                            </li>
+                            <li class="toolbar-item">
+                                <button type="button" class="btn-svg btn-icon-reset no-focus">
+                                    <svg class="svg-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.7778 2.22222V17.7778H2.22222V2.22222H17.7778ZM17.7778 0H2.22222C1 0 0 1 0 2.22222V17.7778C0 19 1 20 2.22222 20H17.7778C19 20 20 19 20 17.7778V2.22222C20 1 19 0 17.7778 0Z" fill="#364F6B"/>
+                                    </svg>
+                                    <span class="btn-text">
+                                        Unselect All
+                                    </span>
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Toolbar End -->
+
+            </main>
+            <!-- Main End -->
 
         </div>
 

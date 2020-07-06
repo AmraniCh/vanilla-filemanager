@@ -15,16 +15,19 @@
         background-color: $mainColor;
         color: #FFF;
 
-        &:hover {
-            background-color: darken($mainColor, 7%);
-        }
+        &:hover { background-color: darken($mainColor, 7%); }
     }
 
-    .btn-icon {
-        @include focus-border();
+    .btn-icon-reset {
         border: none;
         background-color: transparent;
         color: inherit;
         cursor: pointer;
+        @include focus-border();
+    }
+
+    .btn-svg {
+        .svg-icon { margin-right: 5px; }
+        .btn-text { vertical-align: middle; }
     }
 }

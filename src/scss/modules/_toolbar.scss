@@ -1,0 +1,21 @@
+$toolbarHeight: 45px;
+
+.fm-wrapper {
+    main.fm-main {
+        .toolbar {
+            height: $toolbarHeight;
+            padding: 0 25px;
+            border-bottom: 1px solid $borderColor;
+            background-color: map_get($colors, 'gray');
+
+            nav {
+                ul {
+                    li.toolbar-item {
+                        line-height: $toolbarHeight;
+                        margin-right: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

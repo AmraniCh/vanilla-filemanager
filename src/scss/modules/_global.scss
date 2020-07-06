@@ -9,10 +9,20 @@
 
     button, input {
         @include font(Roboto);
+
+        * {
+            font-family: inherit;
+        }
     }
 
     .main-panel {
         height: 100%;
         width: calc(100% - 270px);
+    }
+
+    main.fm-main {
+        .toolbar {
+            border-left: 1px solid $borderColor;
+        }
     }
 }
