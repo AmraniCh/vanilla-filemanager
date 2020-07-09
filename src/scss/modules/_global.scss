@@ -1,7 +1,15 @@
 .fm-wrapper {
-    position: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
+    z-index: 0;
+
+    &:after {
+        clear: both; // IE9
+    }
 
     * {
         @include font(Arvo);

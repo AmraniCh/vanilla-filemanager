@@ -1,3 +1,33 @@
+// polyfill for the Element.prototype.closest method (IE9)
+if (!Element.prototype.closest) {
+    var proto = Element.prototype;
+
+    if (!proto.matches) {
+        proto.matches = proto.msMatchesSelector || proto.webkitMatchesSelector;
+    }
+
+    proto.closest = function (selector) {
+        var ele = this;
+
+        while (ele.parentElement) { // Check for the parent element
+            var parent = ele.parentElement;
+            if (parent.matches(selector)) {
+                return parent; // If the parent matches the selector return it
+            }
+            ele = ele.parentElement; // otherwise switch the 'ele' to the parent element
+        }
+    };
+}
+
+// NodeList forEach polyfill
+if (!NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = function (callback, thisArg) {
+        for (var i = 0; i < this.length; i++) {
+            callback.call(thisArg, this[i], i, this);
+        }
+    };
+}
+
 // DOM elements
 var
     table = document.querySelector('.files-table'),
@@ -5,10 +35,10 @@ var
     allCheckboxes = table.querySelectorAll('.file-item .checkbox input[type="checkbox"]');
 
 // Table click item
-[].forEach.call(fileItems, function (item) {
+fileItems.forEach(function (item) {
     item.addEventListener('click', function (e) {
-        if (e.target.parentElement === this) {
-            if (!e.shiftKey && !e.ctrlKey) {
+        if (e.target.parentElement === this) { // If the event target is a 'file item'
+            if (!e.shiftKey && !e.ctrlKey) { // Multiple selection with shift & ctrl keys
                 fileItems.forEach(function (item) {
                     item.classList.remove('selected');
                 });
@@ -23,21 +53,31 @@ var
 });
 
 // Each checkbox change event
-[].forEach.call(allCheckboxes, function (item) {
+allCheckboxes.forEach(function (item) {
     item.addEventListener('change', function () {
         this.closest('.file-item').classList.toggle('selected');
     });
 });
 
 // Table Select All
-document.querySelector('.checkbox.files-select-all input').addEventListener("change", function () {
+document.querySelector('.files-select-all').addEventListener("change", function () {
     this.checked ? doSelect(true) : doSelect(false);
+});
+
+// Toolbar button select all
+document.querySelector('.toolbar .files-select').addEventListener('click', function () {
+    doSelect(true);
+});
+
+// Toolbar button unselect all
+document.querySelector('.toolbar .files-unselect').addEventListener('click', function () {
+    doSelect(false);
 });
 
 function doSelect(selectAll) {
     [].forEach.call(allCheckboxes, function (checkbox) {
-        var fileItem = checkbox.closest('.file-item');
         checkbox.checked = selectAll;
-        selectAll ? fileItem.classList.add('selected') : fileItem.classList.remove('selected');
+        checkbox.closest('.file-item')
+            .classList[selectAll ? 'add' : 'remove']('selected');
     });
 }
