@@ -1,5 +1,7 @@
+$borderWidth: 1.8px;
+
 %btn {
-    @include focus-border();
+    @include focus-border($borderWidth);
     border: none;
     border-radius: 4px;
     padding: 8px 24px;
@@ -10,20 +12,23 @@
 }
 
 .fm-wrapper {
+
     .btn-primary {
         @extend %btn;
         background-color: $mainColor;
         color: #FFF;
 
-        &:hover { background-color: darken($mainColor, 7%); }
+        &:hover {
+            background-color: getHoverColor($mainColor);
+        }
     }
 
     .btn-icon-reset {
-        border: none;
+        @include focus-border($borderWidth);
+        border: 1.8px solid transparent;
         background-color: transparent;
         color: inherit;
         cursor: pointer;
-        @include focus-border();
     }
 
     .btn-svg {
@@ -36,6 +41,15 @@
 
         .btn-text {
             vertical-align: middle;
+        }
+    }
+
+    .btn-big-svg {
+        svg {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 5px;
         }
     }
 }

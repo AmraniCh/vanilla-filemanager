@@ -5,7 +5,7 @@ $toolbarHeight: 45px;
         .toolbar {
             position: relative;
             height: $toolbarHeight;
-            padding: 0 20px;
+            padding: 0 25px;
             border-bottom: 1px solid $borderColor;
             background-color: map_get($colors, 'white');
             z-index: 0;

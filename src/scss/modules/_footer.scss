@@ -1,0 +1,38 @@
+$footerHeight: 100px;
+
+.fm-wrapper {
+
+    footer.footer {
+        position: relative;
+        height: $footerHeight;
+        border-left: 1px solid $borderColor;
+        padding: 0 25px;
+        background-color: $secondaryColor;
+        color: #FFF;
+
+        .left-buttons, .right-buttons {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .left-buttons {
+            width: 30%;
+        }
+
+        .separator {
+            display: inline-block;
+            height: 2px;
+            width: 65px;
+            position: relative;
+            top: 50%;
+            transform: rotate(90deg);
+            background-color: #FFF;
+        }
+
+        .right-buttons {
+            width: calc(70% - 65px);
+        }
+
+    }
+}

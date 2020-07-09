@@ -8,8 +8,8 @@
     font-family: $font, Helvetica, sans-serif;
 }
 
-@mixin focus-border() {
+@mixin focus-border($borderWidth: 1px) {
     &:focus {
-        border: 1.8px solid $focusColor;
+        border: $borderWidth solid $focusColor;
     }
 }
