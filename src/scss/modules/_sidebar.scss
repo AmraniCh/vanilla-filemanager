@@ -5,6 +5,7 @@ $bottomHeight: 65px;
 $filesListHeight: calc(100% - (#{$brandHeight} + #{$bottomHeight}));
 
 .fm-wrapper {
+
     .sidebar {
         height: 100%;
         width: $sidebarWidth;
@@ -24,6 +25,7 @@ $filesListHeight: calc(100% - (#{$brandHeight} + #{$bottomHeight}));
                     @include vertical-center();
                     font-size: font-size(3);
                     font-weight: bold;
+                    @include font(Arvo);
                     letter-spacing: 1px;
                     color: map_get($colors, 'white');
                 }

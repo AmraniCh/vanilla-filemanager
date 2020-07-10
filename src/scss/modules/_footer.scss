@@ -3,7 +3,6 @@ $footerHeight: 100px;
 .fm-wrapper {
 
     footer.footer {
-        position: relative;
         height: $footerHeight;
         border-left: 1px solid $borderColor;
         padding: 0 25px;
@@ -17,7 +16,7 @@ $footerHeight: 100px;
         }
 
         .left-buttons {
-            width: 30%;
+            width: 33%;
         }
 
         .separator {
@@ -31,8 +30,15 @@ $footerHeight: 100px;
         }
 
         .right-buttons {
-            width: calc(70% - 65px);
+            width: calc(67% - 65px);
         }
 
+        label[for='fileUpload'] {
+            display: inline-block;
+
+            input[type='file'] {
+                display: none;
+            }
+        }
     }
 }

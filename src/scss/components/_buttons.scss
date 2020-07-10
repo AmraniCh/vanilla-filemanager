@@ -2,7 +2,6 @@ $borderWidth: 1.8px;
 
 %btn {
     @include focus-border($borderWidth);
-    border: none;
     border-radius: 4px;
     padding: 8px 24px;
     font-size: font-size(1.6);
@@ -22,6 +21,31 @@ $borderWidth: 1.8px;
             background-color: getHoverColor($mainColor);
         }
     }
+
+    .btn-secondary {
+        @extend %btn;
+        background-color: $secondaryColor;
+        color: #FFF;
+
+        &:hover {
+            background-color: getHoverColor($secondaryColor);
+        }
+    }
+
+    .btn-outline {
+        @extend %btn;
+        background-color: transparent;
+        border: $borderWidth solid #FFF;
+        color: #FFF;
+
+        &:hover {
+            background-color: getHoverColor(#FFF);
+            color: $textColor;
+            border-color: $textColor;
+        }
+    }
+
+
 
     .btn-icon-reset {
         @include focus-border($borderWidth);
@@ -50,6 +74,25 @@ $borderWidth: 1.8px;
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 5px;
+        }
+
+        &[disabled] {
+            opacity: .5;
+        }
+    }
+
+    .btn-upload {
+        @extend %btn;
+        background-color: map-get($colors, 'white');
+        border: $borderWidth solid $textColor;
+        color: $textColor;
+
+        &:hover {
+            background-color: getHoverColor(map-get($colors, 'white'), 4%);
+        }
+
+        input[type='file'] {
+            display: none;
         }
     }
 }

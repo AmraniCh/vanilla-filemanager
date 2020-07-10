@@ -2,6 +2,6 @@
     @return $rootFontSize * $rate;
 }
 
-@function getHoverColor($baseColor) {
-    @return darken($baseColor, 7%);
+@function getHoverColor($baseColor, $rate: 7%) {
+    @return darken($baseColor, $rate);
 }

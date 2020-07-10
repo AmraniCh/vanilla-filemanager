@@ -28,4 +28,8 @@
     ul.list-inline li, ol.list-inline li {
         display: inline-block;
     }
+
+    .clearfix {
+        clear: both;
+    }
 }

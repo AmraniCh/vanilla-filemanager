@@ -1,6 +1,5 @@
 %input {
     @include focus-border();
-    border: none;
     border-radius: 4px;
     background-color: transparent;
     color: inherit;
@@ -8,6 +7,23 @@
 
 .fm-wrapper {
 
+    .input-field {
+        label {
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        input {
+            @extend %input;
+            padding: 10px;
+            width: 100%;
+            background-color: map_get($colors, 'white');
+
+            &::placeholder {
+                color: lighten($textColor, 10%);
+            }
+        }
+    }
 
 
 }

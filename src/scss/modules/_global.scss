@@ -1,14 +1,20 @@
 .fm-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: fixed;
     height: 100%;
     width: 100%;
-    overflow-x: hidden;
-    z-index: 0;
+    z-index: 99;
 
-    &:after {
-        clear: both; // IE9
+    main.main-panel {
+        height: 100%;
+        width: calc(100% - #{$sidebarWidth});
+
+        .toolbar, .table-section {
+            border-left: 1px solid $borderColor;
+        }
+
+        .table-section {
+            height: calc(100% - (#{$footerHeight} + #{$toolbarHeight} + #{$headerHeight}));
+        }
     }
 
     * {
@@ -23,18 +29,12 @@
         }
     }
 
-    .main-panel {
-        height: 100%;
-        width: calc(100% - #{$sidebarWidth});
-    }
+    h1, h2, h3, h4, h5, h6 {
+        @include font(Roboto);
+        text-transform: capitalize;
 
-    main.fm-main {
-        height: calc(100% - #{$headerHeight});
-        position: fixed; // fix IE9
-        width: 100%; // fix IE9
-
-        .toolbar, .table-section {
-            border-left: 1px solid $borderColor;
+        * {
+            font-family: inherit;
         }
     }
 }

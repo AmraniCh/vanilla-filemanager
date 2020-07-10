@@ -1,32 +1,31 @@
 $toolbarHeight: 45px;
 
 .fm-wrapper {
-    main.fm-main {
-        .toolbar {
-            position: relative;
-            height: $toolbarHeight;
-            padding: 0 25px;
-            border-bottom: 1px solid $borderColor;
-            background-color: map_get($colors, 'white');
-            z-index: 0;
 
-            nav {
-                ul {
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
+    .toolbar {
+        position: relative;
+        height: $toolbarHeight;
+        padding: 0 25px;
+        border-bottom: 1px solid $borderColor;
+        background-color: map_get($colors, 'white');
+        z-index: 0;
 
-                    li.toolbar-item {
-                        margin-right: 15px;
+        nav {
+            ul {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
 
-                        &:hover {
-                            background-color: #d0cece;
-                        }
+                li.toolbar-item {
+                    margin-right: 15px;
 
-                        svg {
-                            height: 25px;
-                            color: $mainColor;
-                        }
+                    &:hover {
+                        background-color: #d0cece;
+                    }
+
+                    svg {
+                        height: 25px;
+                        color: $mainColor;
                     }
                 }
             }

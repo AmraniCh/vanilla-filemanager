@@ -13,11 +13,12 @@
 @import "components/buttons";
 @import "components/input";
 @import "components/checkbox";
+@import "components/modal";
 
 // Layout
 @import "modules/sidebar";
 @import "modules/header";
 @import "modules/toolbar";
-@import "modules/files-table";
+@import "modules/table-section";
 @import "modules/footer";
 @import "modules/global";

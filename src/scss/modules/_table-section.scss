@@ -1,0 +1,58 @@
+.fm-wrapper {
+    .table-section {
+        overflow: auto;
+        user-select: none;
+
+        table.files-table {
+            width: 100%;
+
+            tr {
+                border-bottom: 1px solid $borderColor;
+
+                td, th {
+                    text-align: center;
+                    padding: 10px;
+                    color: inherit;
+
+                    &:first-of-type {
+                        width: 1px;
+                    }
+
+                    &:nth-child(2) {
+                        text-align: left;
+                    }
+
+                    &:first-of-type {
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        padding-left: 25px;
+                    }
+                }
+            }
+
+            thead {
+                border-bottom: 2px solid $borderColor;
+
+                th {
+                    font-weight: normal;
+                }
+            }
+
+            tr.file-item {
+                cursor: pointer;
+                transition: all .2s linear;
+
+                &.selected {
+                    background-color: $secondaryColor;
+                    color: #FFF;
+                }
+
+                td:nth-child(2) {
+                    .file-name {
+                        margin-left: 4px;
+                    }
+                }
+            }
+        }
+    }
+}
