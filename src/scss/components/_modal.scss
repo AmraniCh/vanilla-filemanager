@@ -17,18 +17,14 @@ $modalPadding: 25px;
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 500px;
-        background-color: #FFF;
+        width: 470px;
         overflow: hidden;
-        border-radius: 6px;
-        box-shadow: 0 0 3px 1px #333;
-        transition: transform .2s linear;
+        border-radius: 2px;
+        box-shadow: 0 0 3px 1px #555;
+        transform: translate(-50%, 200%);
+        transition: transform .3s ease-out;
+        opacity: 0;
         z-index: 999;
-
-        &.hidden {
-            opacity: .2;
-            transform: translate(-50%, 200%);
-        }
 
         &.show {
             opacity: 1;
@@ -53,6 +49,7 @@ $modalPadding: 25px;
         }
 
         .modal-body {
+            background-color: #FFF;
             padding: $modalPadding;
         }
 

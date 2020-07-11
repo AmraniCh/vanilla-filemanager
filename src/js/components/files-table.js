@@ -54,6 +54,7 @@ fmWrapper.addEventListener('click', function(e) {
         && !e.target.closest('.files-unselect')
         && !e.target.closest('.footer')
         && !e.target.closest('.modal')) {
+        fmWrapper.querySelector('.files-select-all').checked = false;
         doSelect(false);
         disableFooterRightButtons(true);
     }

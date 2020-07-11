@@ -61,6 +61,10 @@ $borderWidth: 1.8px;
         svg {
             vertical-align: bottom;
             margin-right: 5px;
+
+            path {
+                fill: $mainColor;
+            }
         }
 
         .btn-text {
@@ -74,6 +78,10 @@ $borderWidth: 1.8px;
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 5px;
+
+            path {
+                fill: #FFF;
+            }
         }
 
         &[disabled] {

@@ -493,7 +493,7 @@
                                 download
                             </span>
                         </button>
-                        <button class="btn-big-svg btn-icon-reset" disabled type="button">
+                        <button class="btn-big-svg btn-icon-reset" disabled type="button" data-modal="#permissionsModal">
                             <svg fill="none" height="42" viewBox="0 0 42 42" width="42" xmlns="http://www.w3.org/2000/svg">
                                 <path clip-rule="evenodd"
                                       d="M12.2142 1.47C15.4718 0.6972 18.9293 0 21.0001 0C23.0677 0 26.5283 0.6972 29.7859 1.47C32.6915 2.16937 35.5783 2.93025 38.4437 3.752C40.0929 4.2224 41.3359 5.4964 41.5764 7.0672C43.3661 18.8188 39.2152 27.5268 34.1836 33.2892C32.0394 35.7622 29.4937 37.933 26.6314 39.7292C25.6362 40.3542 24.5841 40.903 23.4862 41.37C22.643 41.7172 21.7434 42 21.0001 42C20.2567 42 19.3572 41.7172 18.5139 41.37C17.4159 40.9034 16.3638 40.3546 15.3688 39.7292C12.5076 37.9327 9.96304 35.7619 7.81975 33.2892C2.78186 27.5268 -1.36589 18.8188 0.423767 7.0672C0.543424 6.3058 0.901155 5.59034 1.45555 5.00364C2.00995 4.41694 2.73835 3.98298 3.55644 3.752C6.42191 2.93027 9.30865 2.16939 12.2142 1.47V1.47ZM22.6086 20.7452C23.6384 20.4074 24.5034 19.7564 25.0529 18.9057C25.6025 18.055 25.8017 17.0584 25.616 16.0896C25.4303 15.1207 24.8713 14.2409 24.0365 13.6035C23.2016 12.9661 22.1439 12.6114 21.0473 12.6012C19.9508 12.591 18.885 12.9259 18.0356 13.5477C17.1862 14.1694 16.607 15.0386 16.3989 16.0038C16.1908 16.969 16.3669 17.9691 16.8967 18.8298C17.4264 19.6906 18.2761 20.3575 19.2979 20.7144C19.232 20.8348 19.1857 20.963 19.1605 21.0952L18.1204 26.6952C18.0832 26.8957 18.0952 27.101 18.1554 27.2969C18.2157 27.4928 18.3228 27.6746 18.4693 27.8297C18.6158 27.9848 18.7983 28.1094 19.0039 28.1949C19.2096 28.2804 19.4335 28.3247 19.6602 28.3248H22.2682C22.4958 28.3249 22.7207 28.2804 22.9271 28.1944C23.1335 28.1084 23.3165 27.983 23.4632 27.827C23.6099 27.6709 23.7167 27.488 23.7763 27.2911C23.8358 27.0941 23.8466 26.8879 23.8079 26.6868L22.7242 21.0868C22.7021 20.969 22.6632 20.8542 22.6086 20.7452V20.7452Z"
@@ -522,7 +522,7 @@
             <!-- Main Panel End -->
 
             <!-- Add File Modal Start -->
-            <div class="modal hidden" id="addFileModal">
+            <div class="modal" id="addFileModal">
                 <div class="modal-header">
                     <h3 class="modal-title float-lt">add file</h3>
                     <button class="close float-rt btn-icon-reset" data-close="modal" type="button">
@@ -539,15 +539,15 @@
                     <button class="btn-secondary" id="addFileBtn" type="button">
                         add
                     </button>
-                    <button class="btn-outline" data-close="modal" type="button">
-                        close
+                    <button class="btn-outline" type="button" data-close="modal">
+                        cancel
                     </button>
                 </div>
             </div>
             <!-- Add File Modal End -->
 
             <!-- Add Folder Modal Start -->
-            <div class="modal hidden" id="addFolderModal">
+            <div class="modal" id="addFolderModal">
                 <div class="modal-header">
                     <h3 class="modal-title float-lt">add folder</h3>
                     <button class="close float-rt btn-icon-reset" data-close="modal" type="button">
@@ -564,15 +564,15 @@
                     <button class="btn-secondary" id="addFolderBtn" type="button">
                         add
                     </button>
-                    <button class="btn-outline" data-close="modal" type="button">
-                        close
+                    <button class="btn-outline" type="button" data-close="modal">
+                        cancel
                     </button>
                 </div>
             </div>
             <!-- Add Folder Modal End -->
 
             <!-- Upload Modal Start -->
-            <div class="modal hidden" id="uploadModal">
+            <div class="modal" id="uploadModal">
                 <div class="modal-header">
                     <h3 class="modal-title float-lt">uploading files</h3>
                     <button class="close float-rt btn-icon-reset" data-close="modal" type="button">
@@ -639,14 +639,14 @@
                         upload
                     </button>
                     <button class="btn-outline" data-close="modal" type="button" >
-                        close
+                        cancel
                     </button>
                 </div>
             </div>
             <!-- Upload Modal End -->
 
             <!-- Remove File Modal Start -->
-            <div class="modal hidden" id="removeFileModal">
+            <div class="modal" id="removeFileModal">
                 <div class="modal-header">
                     <h3 class="modal-title float-lt">remove file</h3>
                     <button class="close float-rt btn-icon-reset" type="button" data-close="modal">
@@ -670,7 +670,7 @@
             <!-- Remove File Modal End -->
 
             <!-- Rename File Modal Start -->
-            <div class="modal hidden" id="renameFileModal">
+            <div class="modal" id="renameFileModal">
                 <div class="modal-header">
                     <h3 class="modal-title float-lt">rename file</h3>
                     <button class="close float-rt btn-icon-reset" type="button" data-close="modal">
@@ -688,14 +688,117 @@
                         rename
                     </button>
                     <button class="btn-outline" type="button" data-close="modal">
-                        close
+                        cancel
                     </button>
                 </div>
             </div>
             <!-- Rename File Modal End -->
 
+            <!-- Permissions Modal Start -->
+            <div class="modal permissions-modal"id="permissionsModal">
+                <div class="modal-header">
+                    <h3 class="modal-title float-lt">File Permissions</h3>
+                    <button class="close float-rt btn-icon-reset" type="button" data-close="modal">
+                        ×
+                    </button>
+                </div>
+                <div class="modal-body">
+                
+                    <table class="perm-table">
+                        <thead>
+                            <tr>
+                                <th>permissions</th>
+                                <th>read</th>
+                                <th>write</th>
+                                <th>execute</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>owner</td>
+                                <td>
+                                    <label class="checkbox" data-action="read" data-group="owner">
+                                        <input class="files-select-all" type="checkbox">
+                                        <span class="checkbox-text"></span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox" data-action="write" data-group="owner">
+                                        <input class="files-select-all" type="checkbox">
+                                        <span class="checkbox-text"></span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox" data-action="execute" data-group="owner">
+                                        <input class="files-select-all" type="checkbox">
+                                        <span class="checkbox-text"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>group</td>
+                                <td>
+                                    <label class="checkbox" data-action="read" data-group="group">
+                                        <input class="files-select-all" type="checkbox">
+                                        <span class="checkbox-text"></span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox" data-action="write" data-group="group">
+                                        <input class="files-select-all" type="checkbox">
+                                        <span class="checkbox-text"></span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox" data-action="execute" data-group="group">
+                                        <input class="files-select-all" type="checkbox">
+                                        <span class="checkbox-text"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>others</td>
+                                <td>
+                                    <label class="checkbox" data-action="read" data-group="others">
+                                        <input class="files-select-all" type="checkbox">
+                                        <span class="checkbox-text"></span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox" data-action="write" data-group="others">
+                                        <input class="files-select-all" type="checkbox">
+                                        <span class="checkbox-text"></span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox" data-action="execute" data-group="others">
+                                        <input class="files-select-all" type="checkbox">
+                                        <span class="checkbox-text"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>
+                        Numeric :
+                        <span class="numeric-chmod">0000</span>
+                    </p>
+
+                </div>
+                <div class="modal-footer text-right">
+                    <button class="btn-secondary" id="changePermBtn" type="button">
+                        change
+                    </button>
+                    <button class="btn-outline close-modal" type="button" data-close="modal">
+                        cancel
+                    </button>
+                </div>
+            </div>
+            <!-- Permissions Modal End -->
+
             <!-- Info File Modal Start -->
-            <div class="modal hidden" id="infoFileModal">
+            <div class="modal" id="infoFileModal">
                 <div class="modal-header">
                     <h3 class="modal-title float-lt">file information</h3>
                     <button class="close float-rt btn-icon-reset" type="button" data-close="modal">
@@ -703,11 +806,73 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
+                    <ul class="info-list">
+                        <li class="info-item">
+                            <span class="info-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 0C4.47709 0 0 4.47709 0 10C0 15.5229 4.47709 20 10 20C15.5229 20 20 15.5229 20 10C20 4.47709 15.5229 0 10 0V0ZM9.14476 4.49567H10.8098V6.26669H9.14476V4.49567ZM11.9004 15.2443H10.0688C9.35737 15.2443 9.05394 14.9415 9.05394 14.2149V9.49085C9.05394 9.2638 8.93285 9.15853 8.72093 9.15853H8.11545V7.52305H9.94771C10.6598 7.52305 10.9619 7.84092 10.9619 8.55236V13.2909C10.9619 13.5042 11.083 13.6239 11.2949 13.6239H11.9004V15.2443V15.2443Z" fill="#A7A9AC"/>
+                                    </svg>
+                            </span>
+                            <span class="info-text">
+                                index.html
+                            </span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2939 3.17106C13.5246 2.93228 13.8004 2.74183 14.1054 2.61081C14.4104 2.47978 14.7385 2.41082 15.0704 2.40793C15.4024 2.40505 15.7316 2.4683 16.0388 2.59401C16.3461 2.71971 16.6252 2.90534 16.8599 3.14007C17.0947 3.3748 17.2803 3.65393 17.406 3.96117C17.5317 4.26842 17.595 4.59761 17.5921 4.92956C17.5892 5.26151 17.5202 5.58956 17.3892 5.89457C17.2582 6.19958 17.0677 6.47544 16.8289 6.70606L13.0789 10.4561C12.6101 10.9247 11.9743 11.188 11.3114 11.188C10.6485 11.188 10.0128 10.9247 9.54394 10.4561C9.30819 10.2284 8.99243 10.1024 8.66469 10.1052C8.33694 10.1081 8.02343 10.2395 7.79167 10.4713C7.55991 10.703 7.42845 11.0166 7.4256 11.3443C7.42275 11.6721 7.54874 11.9878 7.77644 12.2236C8.71408 13.1609 9.98562 13.6875 11.3114 13.6875C12.6373 13.6875 13.9088 13.1609 14.8464 12.2236L18.5964 8.47356C19.5072 7.53055 20.0112 6.26754 19.9998 4.95655C19.9884 3.64557 19.4626 2.39151 18.5355 1.46447C17.6085 0.537426 16.3544 0.0115811 15.0434 0.000189013C13.7325 -0.0112031 12.4695 0.492769 11.5264 1.40356L9.65144 3.27856C9.53205 3.39387 9.43682 3.5318 9.37131 3.6843C9.3058 3.83681 9.27132 4.00083 9.26988 4.16681C9.26844 4.33278 9.30006 4.49738 9.36291 4.651C9.42576 4.80462 9.51858 4.94419 9.63595 5.06155C9.75331 5.17892 9.89288 5.27174 10.0465 5.33459C10.2001 5.39744 10.3647 5.42907 10.5307 5.42762C10.6967 5.42618 10.8607 5.3917 11.0132 5.32619C11.1657 5.26068 11.3036 5.16545 11.4189 5.04606L13.2939 3.17106V3.17106ZM7.04394 9.42106C7.51276 8.95238 8.14853 8.68909 8.81144 8.68909C9.47435 8.68909 10.1101 8.95238 10.5789 9.42106C10.6942 9.54045 10.8322 9.63568 10.9847 9.70119C11.1372 9.7667 11.3012 9.80118 11.4672 9.80262C11.6332 9.80407 11.7978 9.77244 11.9514 9.70959C12.105 9.64674 12.2446 9.55392 12.3619 9.43655C12.4793 9.31919 12.5721 9.17962 12.635 9.026C12.6978 8.87238 12.7294 8.70778 12.728 8.54181C12.7266 8.37583 12.6921 8.21181 12.6266 8.0593C12.5611 7.9068 12.4658 7.76887 12.3464 7.65356C11.4088 6.7162 10.1373 6.18963 8.81144 6.18963C7.48562 6.18963 6.21408 6.7162 5.27644 7.65356L1.52644 11.4036C1.04889 11.8648 0.667979 12.4165 0.405934 13.0265C0.143889 13.6366 0.00595786 14.2927 0.000188784 14.9566C-0.0055803 15.6204 0.120928 16.2788 0.372333 16.8933C0.623737 17.5078 0.995003 18.0661 1.46447 18.5355C1.93393 19.005 2.49219 19.3763 3.10667 19.6277C3.72115 19.8791 4.37955 20.0056 5.04345 19.9998C5.70734 19.994 6.36344 19.8561 6.97346 19.5941C7.58348 19.332 8.13521 18.9511 8.59644 18.4736L10.4714 16.5986C10.5908 16.4833 10.6861 16.3453 10.7516 16.1928C10.8171 16.0403 10.8516 15.8763 10.853 15.7103C10.8544 15.5443 10.8228 15.3797 10.76 15.2261C10.6971 15.0725 10.6043 14.9329 10.4869 14.8156C10.3696 14.6982 10.23 14.6054 10.0764 14.5425C9.92276 14.4797 9.75816 14.4481 9.59219 14.4495C9.42621 14.4509 9.26219 14.4854 9.10969 14.5509C8.95718 14.6164 8.81925 14.7117 8.70394 14.8311L6.82894 16.7061C6.59832 16.9448 6.32246 17.1353 6.01745 17.2663C5.71244 17.3973 5.38439 17.4663 5.05244 17.4692C4.7205 17.4721 4.3913 17.4088 4.08406 17.2831C3.77681 17.1574 3.49769 16.9718 3.26295 16.737C3.02822 16.5023 2.84259 16.2232 2.71689 15.9159C2.59118 15.6087 2.52793 15.2795 2.53081 14.9476C2.5337 14.6156 2.60267 14.2876 2.73369 13.9825C2.86471 13.6775 3.05517 13.4017 3.29394 13.1711L7.04394 9.42106Z" fill="#A7A9AC"/>
+                                        </svg>
+                            </span>
+                            <span class="info-text">
+                                /index.html
+                            </span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.38407 5.38462H11.5379V0H5.38407V5.38462ZM9.99945 4.03846H6.92253V1.34615H9.99945V4.03846ZM19.9997 5.38452H14.2854V9.67024H9.99968V15.3845H15.714V11.0988H19.9997V5.38452ZM14.2854 13.9559H11.4283V11.0988H14.2854V13.9559ZM18.5711 9.67024H15.714V6.81309H18.5711V9.67024ZM17.1429 13.077H18.5714C18.9502 13.0774 19.3133 13.2233 19.5812 13.4829C19.849 13.7425 19.9996 14.0945 20 14.4616V18.6154C19.9996 18.9826 19.849 19.3345 19.5812 19.5941C19.3133 19.8537 18.9502 19.9997 18.5714 20.0001H1.42857C1.04981 19.9997 0.686664 19.8537 0.418837 19.5941C0.151009 19.3345 0.000378198 18.9826 0 18.6154V14.4616C0.000378198 14.0945 0.151009 13.7425 0.418837 13.4829C0.686664 13.2233 1.04981 13.0774 1.42857 13.077H8.57143V14.4616H1.42857V18.6154H18.5714V14.4616H17.1429V13.077ZM4.61521 16.1538C4.61521 16.5786 4.27081 16.923 3.84598 16.923C3.42115 16.923 3.07675 16.5786 3.07675 16.1538C3.07675 15.7289 3.42115 15.3845 3.84598 15.3845C4.27081 15.3845 4.61521 15.7289 4.61521 16.1538Z" fill="#A7A9AC"/>
+                                    </svg>                                    
+                            </span>
+                            <span class="info-text">
+                                55 KB
+                            </span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 11.25C13.1055 11.25 15.625 8.73047 15.625 5.625C15.625 2.51953 13.1055 0 10 0C6.89453 0 4.375 2.51953 4.375 5.625C4.375 8.73047 6.89453 11.25 10 11.25ZM15 12.5H12.8477C11.9805 12.8984 11.0156 13.125 10 13.125C8.98438 13.125 8.02344 12.8984 7.15234 12.5H5C2.23828 12.5 0 14.7383 0 17.5V18.125C0 19.1602 0.839844 20 1.875 20H18.125C19.1602 20 20 19.1602 20 18.125V17.5C20 14.7383 17.7617 12.5 15 12.5Z" fill="#A7A9AC"/>
+                                    </svg>                                            
+                            </span>
+                            <span class="info-text">
+                                14066355
+                            </span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-icon">
+                                <svg width="23" height="19" viewBox="0 0 23 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.45 8.14286C4.71859 8.14286 5.75 6.92567 5.75 5.42857C5.75 3.93147 4.71859 2.71429 3.45 2.71429C2.18141 2.71429 1.15 3.93147 1.15 5.42857C1.15 6.92567 2.18141 8.14286 3.45 8.14286ZM19.55 8.14286C20.8186 8.14286 21.85 6.92567 21.85 5.42857C21.85 3.93147 20.8186 2.71429 19.55 2.71429C18.2814 2.71429 17.25 3.93147 17.25 5.42857C17.25 6.92567 18.2814 8.14286 19.55 8.14286ZM20.7 9.5H18.4C17.7675 9.5 17.1961 9.80112 16.7792 10.2888C18.2275 11.2261 19.2553 12.9183 19.4781 14.9286H21.85C22.4861 14.9286 23 14.3221 23 13.5714V12.2143C23 10.7172 21.9686 9.5 20.7 9.5ZM11.5 9.5C13.7245 9.5 15.525 7.37522 15.525 4.75C15.525 2.12478 13.7245 0 11.5 0C9.27547 0 7.475 2.12478 7.475 4.75C7.475 7.37522 9.27547 9.5 11.5 9.5ZM14.26 10.8571H13.9617C13.2142 11.2812 12.3841 11.5357 11.5 11.5357C10.6159 11.5357 9.78937 11.2812 9.03828 10.8571H8.74C6.45437 10.8571 4.6 13.0455 4.6 15.7429V16.9643C4.6 18.0882 5.37266 19 6.325 19H16.675C17.6273 19 18.4 18.0882 18.4 16.9643V15.7429C18.4 13.0455 16.5456 10.8571 14.26 10.8571ZM6.22078 10.2888C5.80391 9.80112 5.2325 9.5 4.6 9.5H2.3C1.03141 9.5 0 10.7172 0 12.2143V13.5714C0 14.3221 0.513906 14.9286 1.15 14.9286H3.51828C3.74469 12.9183 4.7725 11.2261 6.22078 10.2888Z" fill="#A7A9AC"/>
+                                </svg>            
+                            </span>
+                            <span class="info-text">
+                                14066355
+                            </span>
+                        </li>
+                        <li class="info-item">
+                            <span class="info-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 0C4.47715 0 0 4.47715 0 10C0 15.5229 4.47715 20 10 20C15.5229 20 20 15.5229 20 10C20 4.47715 15.5229 0 10 0ZM9.92798 4.57763C11.2784 4.58407 12.5128 5.44523 13.0371 6.64673C13.2165 7.06522 13.3118 7.49512 13.3118 7.96143V9.15042H14.95V15.4224H5.05005V9.15038H6.5564C6.54275 8.31028 6.52547 7.34922 6.82007 6.6467C7.3929 5.38155 8.57753 4.5712 9.92798 4.57763ZM9.85473 6.5747C9.10672 6.59043 8.6134 7.15925 8.54123 7.9614V9.15038H11.3269V7.94922C11.2926 7.18853 10.7168 6.59565 9.92795 6.5747C9.90355 6.57413 9.87914 6.57413 9.85473 6.5747V6.5747Z" fill="#A7A9AC"/>
+                                    </svg>                                               
+                            </span>
+                            <span class="info-text">
+                                -rw-r--r-- (0644)
+                            </span>
+                        </li>
+                    </ul>
                 </div>
                 <div class="modal-footer text-right">
                     <button class="btn-outline" type="button" data-close="modal">
-                        close
+                        cancel
                     </button>
                 </div>
             </div>

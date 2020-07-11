@@ -18,23 +18,19 @@
     }
 
     * {
-        @include font(Arvo);
+        @include font(arvo);
     }
 
-    button, input {
-        @include font(Roboto);
-
-        * {
-            font-family: inherit;
-        }
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        @include font(Roboto);
+    button, input, h1, h2, h3, h4, h5, h6, p {
+        @include font(roboto);
         text-transform: capitalize;
 
         * {
             font-family: inherit;
         }
+    }
+
+    button, input[type='button'] {
+        text-transform: capitalize;
     }
 }

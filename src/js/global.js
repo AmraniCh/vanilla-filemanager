@@ -1,4 +1,4 @@
-// Making a reference to the fileManager wrapper in the window object
+// Making a reference to the fileManager wrapper dom element in the window object
 if (window) {
     window.fmWrapper = document.querySelector('.fm-wrapper');
 }

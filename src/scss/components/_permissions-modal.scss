@@ -1,0 +1,40 @@
+.fm-wrapper {
+
+    .permissions-modal {
+        
+        .perm-table {
+            width: 100%;
+            margin-bottom: 15px;
+    
+            thead {
+                border-bottom: 2px solid $borderColor;
+    
+                th {
+                    font-weight: normal;
+                }
+            }
+    
+            tbody {
+                tr {
+                    &:not(:last-of-type) {
+                        border-bottom: 1px solid $borderColor;
+                    }
+                }
+            }
+    
+            td, th {
+                text-align: center;
+                padding: 10px;
+    
+                &:first-of-type {
+                    text-align: left;
+                }
+            }
+        }
+
+        .numeric-chmod {
+            font-weight: 500;
+        }
+    }
+
+}

@@ -9,6 +9,10 @@ $headerHeight: 70px;
         background-color: $secondaryColor;
         color: #FFF;
 
+        svg path {
+            fill: #FFF;
+        }
+
         form.search-form {
             width: 70%;
 
