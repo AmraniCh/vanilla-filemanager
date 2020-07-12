@@ -10,8 +10,10 @@
                 position: relative;
                 padding: 8px;
                 border: 1px solid $borderColor;
-                border-radius: 2px;
+                border-radius: 4px;
+                box-shadow: 0px 4px 5px 1px #ddd;
                 color: $textColor;
+
 
                 &:not(:last-of-type) {
                     margin-bottom: 10px;

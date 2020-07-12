@@ -22,7 +22,7 @@ $modalPadding: 25px;
         border-radius: 2px;
         box-shadow: 0 0 3px 1px #555;
         transform: translate(-50%, 200%);
-        transition: transform .3s ease-out;
+        transition: transform .3s ease-out !important;
         opacity: 0;
         z-index: 999;
         background-color: $mainColor;

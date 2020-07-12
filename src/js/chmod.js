@@ -6,12 +6,12 @@ var
         execute: 1
     };
 
-fmWrapper.querySelectorAll('.perm-table .checkbox').forEach(function (checkbox) {
-    checkbox.addEventListener('change', function () {
-        fmWrapper.querySelector('.numeric-chmod').textContent = getChmodString.call(this);
-    });
+fmWrapper.querySelectorAll('.perm-table .checkbox')
+    .forEach(function (checkbox) {
+        checkbox.addEventListener('change', function () {
+            fmWrapper.querySelector('.numeric-chmod').textContent = getChmodString.call(this);
+        });
 });
-
 
 function getChmodString() {
     var

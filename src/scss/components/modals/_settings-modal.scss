@@ -27,12 +27,12 @@
                     box-shadow: 0 0 0 4px #DDD;;
                 }
 
-                &.default-theme {
+                &[data-theme='default-theme'] {
                     @include palette-border-color($mainColor, $secondaryColor);
                 }
 
                 @each $theme, $map in $theme-colors {
-                    &.#{$theme}#{'-theme'} {
+                    &[data-theme=#{$theme}#{'-theme'}] {
                         @include palette-border-color(
                                 map_get($map, 'main'),
                                 map-get($map, 'secondary')

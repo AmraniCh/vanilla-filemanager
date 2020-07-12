@@ -43,6 +43,10 @@
                 &.selected {
                     background-color: darken($secondaryColor, 20%);
                     color: #FFF;
+
+                    svg path {
+                        fill: #FFF;
+                    }
                 }
 
                 td:nth-child(2) {

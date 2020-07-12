@@ -1,3 +1,7 @@
+@mixin change-theme-transition() {
+    transition: background-color .5s linear;
+}
+
 .fm-wrapper {
 
     @each $theme, $map in $theme-colors {
@@ -9,34 +13,37 @@
             .btn-primary,
             .slidebar,
             .modal {
+                @include change-theme-transition();
                 background-color: $main !important;
             }
 
             .files-table .file-item.selected {
+                @include change-theme-transition();
                 background-color: darken($secondary, 10%) !important;
             }
 
             .header,
             .footer,
-            .btn-secondary
+            .btn-secondary,
+            .upload-modal .files-to-upload .file-item .start-upload .progress .progress-bar
             {
+                @include change-theme-transition();
                 background-color: $secondary !important;
             }
 
             .checkbox input[type='checkbox']:checked+.checkbox-text:before {
+                @include change-theme-transition();
                 background-color: $main !important;
                 border: 0.05em solid $main !important;
             }
 
-            .upload-modal .files-to-upload .file-item .start-upload .progress .progress-bar {
-                background-color: $secondary !important;
-            }
-
             .btn-svg svg path {
+                @include change-theme-transition();
                 fill: $main;
             }
 
             .info-list .info-item .info-icon svg path {
+                @include change-theme-transition();
                 fill: $secondary;
             }
         }
