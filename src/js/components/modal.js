@@ -4,7 +4,7 @@ overlayDiv.classList.add('modal-overlay');
 fmWrapper.appendChild(overlayDiv);
 
 // Modal Show
-fmWrapper.querySelectorAll('button[data-modal]').forEach(function (item) {
+fmWrapper.querySelectorAll('*[data-modal]').forEach(function (item) {
     item.addEventListener('click', function () {
         fmWrapper.querySelector(this.dataset.modal).classList.add('show');
         overlayDiv.classList.add('show');
@@ -12,7 +12,7 @@ fmWrapper.querySelectorAll('button[data-modal]').forEach(function (item) {
 });
 
 // Modal Hide
-fmWrapper.querySelectorAll('button[data-close="modal"]').forEach(function (item) {
+fmWrapper.querySelectorAll('*[data-close="modal"]').forEach(function (item) {
     item.addEventListener('click', function () {
         this.closest('.modal').classList.remove('show');
         overlayDiv.classList.remove('show');

@@ -2,6 +2,7 @@ $borderWidth: 1.8px;
 
 %btn {
     @include focus-border($borderWidth);
+    border: $borderWidth solid transparent;
     border-radius: 4px;
     padding: 8px 24px;
     font-size: font-size(1.6);
@@ -45,17 +46,15 @@ $borderWidth: 1.8px;
         }
     }
 
-
-
     .btn-icon-reset {
         @include focus-border($borderWidth);
-        border: 1.8px solid transparent;
         background-color: transparent;
         color: inherit;
         cursor: pointer;
     }
 
     .btn-svg {
+        @extend %btn;
         border-radius: 4px;
 
         svg {

@@ -1,0 +1,64 @@
+.fm-wrapper {
+
+    .upload-modal {
+
+        .files-to-upload {
+            max-height: 270px;
+            overflow-y: auto;
+
+            .file-item {
+                position: relative;
+                padding: 8px;
+                border: 1px solid $borderColor;
+                border-radius: 2px;
+                color: $textColor;
+
+                &:not(:last-of-type) {
+                    margin-bottom: 10px;
+                }
+
+                .name {
+                    font-weight: normal;
+                    margin-bottom: 4px;
+                }
+
+                .size {
+                    display: block;
+                    clear: both;
+                    font-size: font-size(1.4);
+                }
+
+                .remove-upload-file {
+                    @extend .close;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: 2rem;
+                }
+
+                .start-upload {
+                    margin-top: 15px;
+
+                    .upload-state {
+                        color: $textColor;
+                    }
+
+                    .progress {
+                        overflow: hidden;
+                        border-radius: 5px;
+                        border: .8px solid #DDD;
+                        margin-top: .5rem;
+                        background-color: map-get($colors, 'white');
+
+                        .progress-bar {
+                            width: 100%;
+                            height: 20px;
+                            background-color: $secondaryColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

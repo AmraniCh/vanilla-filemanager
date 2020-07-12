@@ -41,7 +41,7 @@
                 transition: all .2s linear;
 
                 &.selected {
-                    background-color: $secondaryColor;
+                    background-color: darken($secondaryColor, 20%);
                     color: #FFF;
                 }
 

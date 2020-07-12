@@ -14,3 +14,7 @@
         border: $borderWidth solid $focusColor;
     }
 }
+
+@mixin palette-border-color($primary, $secondary) {
+    border-color: $secondary $secondary $primary $primary;
+}

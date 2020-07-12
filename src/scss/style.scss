@@ -14,8 +14,12 @@
 @import "components/input";
 @import "components/checkbox";
 @import "components/modal";
-@import "components/permissions-modal";
-@import "components/info-modal";
+
+// Modals
+@import "components/modals/permissions-modal";
+@import "components/modals/info-modal";
+@import "components/modals/settings-modal";
+@import "components/modals/upload-modal";
 
 // Layout
 @import "modules/sidebar";
@@ -24,3 +28,6 @@
 @import "modules/table-section";
 @import "modules/footer";
 @import "modules/global";
+
+// themes
+@import "themes/themes";

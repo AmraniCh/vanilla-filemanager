@@ -1,0 +1,47 @@
+.fm-wrapper {
+
+    .settings-modal {
+
+        .themes-list {
+            margin-top: 25px;
+
+            .theme-option {
+                display: inline-block;
+                border-width: 12px;
+                border-style: solid;
+                border-radius: 50%;
+                transform: rotate(45deg);
+                cursor: pointer;
+                margin: 0 10px;
+
+                &:after {
+                    content: '';
+                    display: table-cell;
+                    border-width: 5px;
+                    border-style: solid;
+                    border-radius: 50%;
+                    border-color: #FFF;
+                }
+
+                &.selected {
+                    box-shadow: 0 0 0 4px #DDD;;
+                }
+
+                &.default-theme {
+                    @include palette-border-color($mainColor, $secondaryColor);
+                }
+
+                @each $theme, $map in $theme-colors {
+                    &.#{$theme}#{'-theme'} {
+                        @include palette-border-color(
+                                map_get($map, 'main'),
+                                map-get($map, 'secondary')
+                        );
+                    }
+                }
+            }
+        }
+
+    }
+
+}

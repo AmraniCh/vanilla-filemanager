@@ -61,6 +61,7 @@ fmWrapper.addEventListener('click', function(e) {
 });
 
 function doSelect(selectAll) {
+    fmWrapper.querySelector('.files-select-all').checked = selectAll;
     [].forEach.call(allCheckboxes, function (checkbox) {
         checkbox.checked = selectAll;
         checkbox.closest('.file-item')

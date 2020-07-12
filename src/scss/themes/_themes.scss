@@ -1,0 +1,44 @@
+.fm-wrapper {
+
+    @each $theme, $map in $theme-colors {
+        &.#{$theme}#{'-theme'} {
+            $main: map_get($map, 'main');
+            $secondary: map-get($map, 'secondary');
+
+            .sidebar .brand,
+            .btn-primary,
+            .slidebar,
+            .modal {
+                background-color: $main !important;
+            }
+
+            .files-table .file-item.selected {
+                background-color: darken($secondary, 10%) !important;
+            }
+
+            .header,
+            .footer,
+            .btn-secondary
+            {
+                background-color: $secondary !important;
+            }
+
+            .checkbox input[type='checkbox']:checked+.checkbox-text:before {
+                background-color: $main !important;
+                border: 0.05em solid $main !important;
+            }
+
+            .upload-modal .files-to-upload .file-item .start-upload .progress .progress-bar {
+                background-color: $secondary !important;
+            }
+
+            .btn-svg svg path {
+                fill: $main;
+            }
+
+            .info-list .info-item .info-icon svg path {
+                fill: $secondary;
+            }
+        }
+    }
+}

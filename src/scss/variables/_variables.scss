@@ -14,6 +14,18 @@ $colors: (
     'cyan': #71d6fc,
 );
 
+// Themes
+$theme-colors: (
+    'orange-blue': (
+        main: #146eb4,
+        secondary: #ff9900,
+    ),
+    'dark-blue': (
+        main: #4d4f53,
+        secondary: rgba(0, 38, 99, 0.9),
+    )
+);
+
 $mainColor: map-get($colors, 'blue');
 $secondaryColor: map_get($colors, 'gray-slate');
 $textColor: map-get($colors, 'black');

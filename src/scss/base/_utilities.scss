@@ -20,9 +20,11 @@
         vertical-align: middle;
     }
 
-    .no-focus:focus {
-        border: none !important;
-        outline: none !important;
+    .no-focus {
+        &:focus {
+            border: none !important;
+            outline: none !important;
+        }
     }
 
     ul.list-inline li, ol.list-inline li {
