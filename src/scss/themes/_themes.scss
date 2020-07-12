@@ -19,7 +19,7 @@
 
             .files-table .file-item.selected {
                 @include change-theme-transition();
-                background-color: darken($secondary, 10%) !important;
+                background-color: lighten($secondary, 8%) !important;
             }
 
             .header,

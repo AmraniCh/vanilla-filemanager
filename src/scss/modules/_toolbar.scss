@@ -17,13 +17,19 @@ $toolbarHeight: 45px;
                 transform: translateY(-50%);
 
                 li.toolbar-item {
-                    &:hover {
-                        background-color: #d0cece;
-                    }
+                    button {
+                        background-color: transparent;
+                        border: 1px solid transparent;
+                        border-radius: 0;
 
-                    svg {
-                        height: 25px;
-                        color: $mainColor;
+                        &:hover, &:focus {
+                            transition: background-color .3s linear;
+                            background-color: #FFF;
+                        }
+
+                        svg {
+                            height: 25px;
+                        }
                     }
                 }
             }

@@ -41,7 +41,7 @@
                 transition: all .2s linear;
 
                 &.selected {
-                    background-color: darken($secondaryColor, 20%);
+                    background-color: lighten($secondaryColor, 8%);
                     color: #FFF;
 
                     svg path {
