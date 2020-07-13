@@ -11,16 +11,20 @@ $toolbarHeight: 45px;
         z-index: 0;
 
         nav {
+
             ul {
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
 
                 li.toolbar-item {
+
                     button {
+                        height: $toolbarHeight;
                         background-color: transparent;
-                        border: 1px solid transparent;
+                        border: none;
                         border-radius: 0;
+                        padding: 8px 12px;
 
                         &:hover, &:focus {
                             transition: background-color .3s linear;
@@ -28,7 +32,7 @@ $toolbarHeight: 45px;
                         }
 
                         svg {
-                            height: 25px;
+                            height: 22px;
                         }
                     }
                 }

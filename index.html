@@ -11,9 +11,14 @@
         <!-- fm-wrapper Start -->
         <div class="fm-wrapper default-theme">
 
+            <div class="loader-container">
+                <div class="loader"></div>
+                <div class="overlay"></div>
+            </div>
+
             <!-- SideBar Start -->
             <aside class="sidebar float-lt">
-                <div class="brand text-center">
+                <div class="brand text-center loading">
                     <a class="link" href="#">
                         <h3 class="name">FileManager</h3>
                         <!--<img class="logo" src="logo.png">-->
@@ -76,7 +81,7 @@
 
                 </ul>
 
-                <div class="bottom text-center">
+                <div class="bottom text-center loading">
                     <button class="btn-primary" type="button">
                         logout
                     </button>
@@ -89,7 +94,7 @@
             <main class="main-panel float-lt">
 
                 <!-- Header Start -->
-                <header class="header">
+                <header class="header loading">
                     <form class="search-form float-lt">
                         <label>
                             <svg class="svg-icon" fill="none" height="45" viewBox="0 0 45 45" width="45"
@@ -139,7 +144,7 @@
                 <!-- Toolbar Start -->
                 <div class="toolbar">
                     <nav>
-                        <ul class="list-inline">
+                        <ul class="list-inline loading">
                             <li class="toolbar-item">
                                 <button class="btn-svg no-focus" type="button">
                                     <svg fill="none" height="18" viewBox="0 0 20 18" width="20"
@@ -395,7 +400,7 @@
                 <!-- Table End -->
 
                 <!-- Footer Start -->
-                <footer class="footer">
+                <footer class="footer loading">
 
                     <div class="left-buttons float-lt">
                         <button class="btn-big-svg btn-icon-reset" type="button">
@@ -890,15 +895,9 @@
                             Choose theme :
                         </span>
                         <ul class="themes-list list-inline text-center">
-                            <li>
-                                <a class="theme-option selected" data-theme="default-theme"></a>
-                            </li>
-                            <li>
-                                <a class="theme-option" data-theme="dark-red-theme"></a>
-                            </li>
-                            <li>
-                                <a class="theme-option" data-theme="dark-blue-theme"></a>
-                            </li>
+                            <li class="theme-option selected" data-theme="default-theme"></li>
+                            <li class="theme-option" data-theme="dark-red-theme"></li>
+                            <li class="theme-option" data-theme="dark-blue-theme"></li>
                         </ul>
                     </div>
                 </div>

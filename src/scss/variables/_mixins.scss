@@ -18,3 +18,7 @@
 @mixin palette-border-color($primary, $secondary) {
     border-color: $secondary $secondary $primary $primary;
 }
+
+@mixin change-theme-transition() {
+    transition: background-color .5s linear;
+}

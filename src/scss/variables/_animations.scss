@@ -8,3 +8,18 @@
         opacity: 1;
     }
 }
+
+@keyframes loaderAnimation {
+    from {
+        transform: rotate(-360deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes loadingAnimation {
+    100% {
+        transform: translateX(100%);
+    }
+}
