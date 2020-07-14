@@ -1,0 +1,54 @@
+$editorHeight: 350px;
+
+.fm-wrapper {
+
+    .editor-modal {
+        width: 80% !important;  // Override modal width
+
+        #fm-editor {
+            position: relative;
+            height: $editorHeight;
+            overflow: auto;
+            border: 1px solid #e4e6e8;
+            box-sizing: content-box;
+            font-family: Consolas, sans-serif;
+
+            * {
+                font-family: inherit;
+            }
+
+            .content-area, .line-numbers {
+                min-height: $editorHeight;
+            }
+
+            .content-area {
+                width: calc(100% - 25px);
+                float: right;
+                padding: 0 5px;
+                resize: none;
+                overflow: hidden;
+                border: none;
+
+                &:focus {
+                    outline: none !important;
+                }
+            }
+
+            .line-numbers {
+                display: inline-block;
+                float: left;
+                width: 25px;
+                line-height: 125%;
+                border-right: 1px solid #e4e6e8;
+                background-color: #f3f3f3;
+
+                span {
+                    display: block;
+                    text-align: center;
+                    font-size: .9em;
+                    color: #999;
+                }
+            }
+        }
+    }
+}
