@@ -1,6 +1,5 @@
 // Create and add the modal overlay to the DOM
 var overlayDiv = document.createElement('div');
-console.log(overlayDiv.classList)
 overlayDiv.classList.add('modal-overlay');
 fmWrapper.appendChild(overlayDiv);
 

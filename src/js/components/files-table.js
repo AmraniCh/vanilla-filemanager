@@ -6,8 +6,8 @@ var
 
 // Table click item
 fileItems.forEach(function (item) {
-    item.addEventListener('click', function (e) {             
-        if (!e.target.closest('.checkbox')) { // Ignore event bubbling for the checkbox 
+    item.addEventListener('click', function (e) {
+        if (!e.target.closest('.checkbox')) { // Ignore event bubbling for the checkbox
             if (!e.shiftKey && !e.ctrlKey) { // Multiple selection with shift & ctrl keys
                 fileItems.forEach(function (item) {
                     item.classList.remove('selected');
