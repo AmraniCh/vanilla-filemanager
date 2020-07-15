@@ -55,7 +55,7 @@
                         <span class="name">css</span>
 
                         <ul class="sub-files">
-                            <li class="file-item item" data-open="false">
+                            <li class="file-item item">
                                 <svg class="svg-icon" fill="none" height="17" viewBox="0 0 15 17" width="15"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <path d="M9.29674 1H2C1.44772 1 1 1.44771 1 2V14.8571C1 15.4094 1.44772 15.8571 2 15.8571H13C13.5523 15.8571 14 15.4094 14 14.8571V5.17422C14 4.8823 13.8724 4.60495 13.6508 4.41496L9.94753 1.24074C9.76629 1.08539 9.53545 1 9.29674 1Z"
@@ -64,6 +64,19 @@
                                           fill="#58595B"/>
                                 </svg>
                                 <span class="name">main.css</span>
+                            </li>
+                            <li class="dir-item item" data-open="false">
+                                <svg class="icon-contract svg-icon" fill="none" height="13" viewBox="0 0 17 13" width="17">
+                                    <path d="M17 3.33337V12C17 12.5523 16.5523 13 16 13H1C0.447715 13 0 12.5523 0 12V2.33337V1C0 0.447715 0.447715 0 1 0H6.54006C6.83199 0 7.10934 0.127565 7.29932 0.349215L9 2.33337H16C16.5523 2.33337 17 2.78109 17 3.33337Z"
+                                          fill="#58595B"/>
+                                </svg>
+                                <svg class="icon-expend svg-icon" fill="none" height="13" viewBox="0 0 19 13" width="19">
+                                    <path d="M17 3.33337V13H0V2.33337V1C0 0.447715 0.447715 0 1 0H6.54006C6.83199 0 7.10934 0.127565 7.29932 0.349215L9 2.33337H16C16.5523 2.33337 17 2.78109 17 3.33337Z"
+                                          fill="#58595B"/>
+                                    <path d="M16.9999 13H-0.00012207L1.36661 4.34404C1.44335 3.85799 1.8623 3.5 2.35437 3.5H17.3296C17.9441 3.5 18.4133 4.049 18.3174 4.65597L16.9999 13Z"
+                                          fill="#C0C0C0"/>
+                                </svg>
+                                <span class="name">js</span>
                             </li>
                         </ul>
                     </li>
@@ -480,6 +493,14 @@
                                 rename
                             </span>
                         </button>
+                        <button class="btn-big-svg btn-icon-reset" data-modal="#moveFileModal" disabled type="button">
+                            <svg width="40" height="42" viewBox="0 0 40 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21.0526 30H29.4737V24L40 33L29.4737 42V36H21.0526V30ZM18.9474 14H30.5263L18.9474 3V14ZM4.21053 0H21.0526L33.6842 12V20.68C32.3579 20.24 30.9474 20 29.4737 20C26.1236 20 22.9107 21.2643 20.5418 23.5147C18.1729 25.7652 16.8421 28.8174 16.8421 32C16.8421 35.08 18.0632 37.88 20.0632 40H4.21053C3.09382 40 2.02286 39.5786 1.23323 38.8284C0.443608 38.0783 0 37.0609 0 36V4C0 2.93913 0.443608 1.92172 1.23323 1.17157C2.02286 0.421427 3.09382 0 4.21053 0Z" fill="white"/>
+                            </svg>
+                            <span class="btn-text">
+                                move
+                            </span>
+                        </button>
                         <button class="btn-big-svg btn-icon-reset" disabled type="button">
                             <svg fill="none" height="42" viewBox="0 0 60 42" width="60" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M50.4 18.2438C50.7844 17.2406 51 16.1438 51 15C51 10.0313 46.9688 6 42 6C40.1531 6 38.4281 6.5625 37.0031 7.51875C34.4063 3.01875 29.5594 0 24 0C15.7125 0 9 6.7125 9 15C9 15.2531 9.00938 15.5063 9.01875 15.7594C3.76875 17.6063 0 22.6125 0 28.5C0 35.9531 6.04688 42 13.5 42H48C54.6281 42 60 36.6281 60 30C60 24.1969 55.875 19.35 50.4 18.2438ZM37.9406 26.5594L28.0594 36.4406C27.4781 37.0219 26.5219 37.0219 25.9406 36.4406L16.0594 26.5594C15.1125 25.6125 15.7875 24 17.1188 24H23.25V13.5C23.25 12.675 23.925 12 24.75 12H29.25C30.075 12 30.75 12.675 30.75 13.5V24H36.8813C38.2125 24 38.8875 25.6125 37.9406 26.5594V26.5594Z"
@@ -691,7 +712,7 @@
             <!-- Rename File Modal End -->
 
             <!-- Permissions Modal Start -->
-            <div class="modal permissions-modal"id="permissionsModal">
+            <div class="modal permissions-modal" id="permissionsModal">
                 <div class="modal-header">
                     <h3 class="modal-title float-lt">File Permissions</h3>
                     <button class="close float-rt btn-icon-reset" type="button" data-close="modal">
@@ -921,11 +942,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="fm-editor">
-                        <div class="line-numbers">
-                        </div>
-                        <!--
-                        <textarea class="content-area">
-                        </textarea>-->
+                        <div class="line-numbers"></div>
                         <textarea class="content-area"></textarea>
                     </div>
                 </div>
@@ -939,6 +956,75 @@
                 </div>
             </div>
             <!-- Rename File Modal End -->
+
+            <!-- Move File Modal Start -->
+            <div class="modal movefile-modal" id="moveFileModal">
+                <div class="modal-header">
+                    <h3 class="modal-title float-lt">move file</h3>
+                    <button class="close float-rt btn-icon-reset" type="button" data-close="modal">
+                        ×
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4 class="moving-to">
+                        moving <span class="source">index.html</span>
+                        to <span class="badge">src/folder1</span>
+                    </h4>
+                    <ul class="files-list">
+                        <li class="dir-item item" data-open="false">
+                            <svg class="icon-contract svg-icon" fill="none" height="13" viewBox="0 0 17 13" width="17">
+                                <path d="M17 3.33337V12C17 12.5523 16.5523 13 16 13H1C0.447715 13 0 12.5523 0 12V2.33337V1C0 0.447715 0.447715 0 1 0H6.54006C6.83199 0 7.10934 0.127565 7.29932 0.349215L9 2.33337H16C16.5523 2.33337 17 2.78109 17 3.33337Z"
+                                      fill="#58595B"/>
+                            </svg>
+                            <svg class="icon-expend svg-icon" fill="none" height="13" viewBox="0 0 19 13" width="19">
+                                <path d="M17 3.33337V13H0V2.33337V1C0 0.447715 0.447715 0 1 0H6.54006C6.83199 0 7.10934 0.127565 7.29932 0.349215L9 2.33337H16C16.5523 2.33337 17 2.78109 17 3.33337Z"
+                                      fill="#58595B"/>
+                                <path d="M16.9999 13H-0.00012207L1.36661 4.34404C1.44335 3.85799 1.8623 3.5 2.35437 3.5H17.3296C17.9441 3.5 18.4133 4.049 18.3174 4.65597L16.9999 13Z"
+                                      fill="#C0C0C0"/>
+                            </svg>
+                            <span class="name">libs</span>
+                        </li>
+                        <li class="dir-item item" data-open="true">
+                            <svg class="icon-contract svg-icon" fill="none" height="13" viewBox="0 0 17 13" width="17">
+                                <path d="M17 3.33337V12C17 12.5523 16.5523 13 16 13H1C0.447715 13 0 12.5523 0 12V2.33337V1C0 0.447715 0.447715 0 1 0H6.54006C6.83199 0 7.10934 0.127565 7.29932 0.349215L9 2.33337H16C16.5523 2.33337 17 2.78109 17 3.33337Z"
+                                      fill="#58595B"/>
+                            </svg>
+                            <svg class="icon-expend svg-icon" fill="none" height="13" viewBox="0 0 19 13" width="19">
+                                <path d="M17 3.33337V13H0V2.33337V1C0 0.447715 0.447715 0 1 0H6.54006C6.83199 0 7.10934 0.127565 7.29932 0.349215L9 2.33337H16C16.5523 2.33337 17 2.78109 17 3.33337Z"
+                                      fill="#58595B"/>
+                                <path d="M16.9999 13H-0.00012207L1.36661 4.34404C1.44335 3.85799 1.8623 3.5 2.35437 3.5H17.3296C17.9441 3.5 18.4133 4.049 18.3174 4.65597L16.9999 13Z"
+                                      fill="#C0C0C0"/>
+                            </svg>
+                            <span class="name">css</span>
+
+                            <ul class="sub-files">
+                                <li class="dir-item item selected" data-open="false">
+                                    <svg class="icon-contract svg-icon" fill="none" height="13" viewBox="0 0 17 13" width="17">
+                                        <path d="M17 3.33337V12C17 12.5523 16.5523 13 16 13H1C0.447715 13 0 12.5523 0 12V2.33337V1C0 0.447715 0.447715 0 1 0H6.54006C6.83199 0 7.10934 0.127565 7.29932 0.349215L9 2.33337H16C16.5523 2.33337 17 2.78109 17 3.33337Z"
+                                              fill="#58595B"/>
+                                    </svg>
+                                    <svg class="icon-expend svg-icon" fill="none" height="13" viewBox="0 0 19 13" width="19">
+                                        <path d="M17 3.33337V13H0V2.33337V1C0 0.447715 0.447715 0 1 0H6.54006C6.83199 0 7.10934 0.127565 7.29932 0.349215L9 2.33337H16C16.5523 2.33337 17 2.78109 17 3.33337Z"
+                                              fill="#58595B"/>
+                                        <path d="M16.9999 13H-0.00012207L1.36661 4.34404C1.44335 3.85799 1.8623 3.5 2.35437 3.5H17.3296C17.9441 3.5 18.4133 4.049 18.3174 4.65597L16.9999 13Z"
+                                              fill="#C0C0C0"/>
+                                    </svg>
+                                    <span class="name">assets</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer text-right">
+                    <button class="btn-secondary" id="moveFileBtn" type="button">
+                        move
+                    </button>
+                    <button class="btn-outline" type="button" data-close="modal">
+                        cancel
+                    </button>
+                </div>
+            </div>
+            <!-- Move File Modal End -->
 
         </div>
         <!-- fm-wrapper End -->

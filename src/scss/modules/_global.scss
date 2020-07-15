@@ -35,4 +35,43 @@
     button, input[type='button'] {
         text-transform: capitalize;
     }
+
+    ul.files-list {
+        overflow: auto;
+
+        li.item {
+            padding: 4px;
+            cursor: pointer;
+
+            &.dir-item[data-open=false]:hover, &.file-item:hover {
+                opacity: .8;
+            }
+
+            &[data-open=false] {
+                > .icon-expend {
+                    display: none;
+                }
+            }
+
+            &[data-open=true] {
+                > .icon-contract {
+                    display: none;
+                }
+            }
+
+            .svg-icon {
+                user-select: none;
+                margin-right: 5px;
+            }
+
+            .name {
+                vertical-align: middle;
+            }
+
+            .sub-files {
+                transition: all 2s ease;
+                margin-left: 10px;
+            }
+        }
+    }
 }

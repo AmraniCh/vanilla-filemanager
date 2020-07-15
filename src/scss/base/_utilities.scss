@@ -31,7 +31,10 @@
         display: inline-block;
     }
 
-    .clearfix {
-        clear: both;
+    .badge {
+        border-radius: 4px;
+        padding: 3px 10px;
+        background-color: $mainColor;
+        color: #FFF;
     }
 }

@@ -8,3 +8,4 @@ import './editor.js';
 import './components/slidebar.js';
 import './components/files-table.js';
 import './components/modal.js';
+import './components/move-file-modal-select-file';

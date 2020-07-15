@@ -13,7 +13,8 @@
             .sidebar .brand,
             .btn-primary,
             .slidebar,
-            .modal {
+            .modal,
+            .badge {
                 @include change-theme-transition();
                 background-color: $main !important;
             }
@@ -26,7 +27,8 @@
             .header,
             .footer,
             .btn-secondary,
-            .upload-modal .files-to-upload .file-item .start-upload .progress .progress-bar
+            .upload-modal .files-to-upload .file-item .start-upload .progress .progress-bar,
+            .movefile-modal ul.files-list li.dir-item.selected:before
             {
                 @include change-theme-transition();
                 background-color: $secondary !important;
