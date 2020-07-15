@@ -7,7 +7,7 @@ if (localStorage.getItem('fm-theme')) {
 fmWrapper.querySelectorAll('.theme-option')
     .forEach(function (option) {
         option.addEventListener('click', function () {
-            updateTheme(this.dataset.theme);
+            updateTheme(this.getAttribute('data-theme'));
         });
 });
 
@@ -25,7 +25,7 @@ function updateTheme(theme) {
     var themeClasses = [];
     fmWrapper.querySelectorAll('.theme-option')
         .forEach(function (item) {
-            themeClasses.push(item.dataset.theme);
+            themeClasses.push(item.getAttribute('data-theme'));
         });
 
     // removing all other theme classes

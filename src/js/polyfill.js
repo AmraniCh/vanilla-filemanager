@@ -105,6 +105,6 @@ if (
             return new classList(this);
         },
         enumerable: true,
-        configurable: true
+        configurable: true,
     });
 }

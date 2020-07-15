@@ -15,8 +15,8 @@ fmWrapper.querySelectorAll('.perm-table .checkbox')
 
 function getChmodString() {
     var
-        group = this.dataset.group,
-        action = this.dataset.action,
+        group = this.getAttribute('data-group'),
+        action = this.getAttribute('data-action'),
         checked = this.querySelector('input[type="checkbox"]').checked;
 
     switch (group) {
