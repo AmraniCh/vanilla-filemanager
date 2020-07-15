@@ -27,6 +27,7 @@ fileItems.forEach(function (item) {
 // Each checkbox change event
 allCheckboxes.forEach(function (item) {
     item.addEventListener('change', function (  ) {
+        console.log(this.closest('.file-item'));
         this.closest('.file-item').classList.toggle('selected'); 
         disableFooterRightButtons(table.querySelectorAll('.file-item.selected').length === 0);
     });
@@ -38,34 +39,35 @@ fmWrapper.querySelector('.files-select-all').addEventListener("change", function
 });
 
 // Toolbar button select all
-fmWrapper.querySelector('.toolbar .files-select').addEventListener('click', function () {
+fmWrapper.querySelector('.files-select').addEventListener('click', function () {
     doSelect(true);
 });
 
 // Toolbar button unselect all
-fmWrapper.querySelector('.toolbar .files-unselect').addEventListener('click', function () {
+fmWrapper.querySelector('.files-unselect').addEventListener('click', function () {
     doSelect(false);
 });
 
 // Unselect Table Files when clicking out of the table
 fmWrapper.addEventListener('click', function(e) {
-    if (!e.target.closest('.files-table') 
+    if (!e.target.closest('.files-table')
         && !e.target.closest('.files-select')
         && !e.target.closest('.files-unselect')
         && !e.target.closest('.footer')
         && !e.target.closest('.modal')) {
+        console.log('dddddd');
         fmWrapper.querySelector('.files-select-all').checked = false;
         doSelect(false);
         disableFooterRightButtons(true);
     }
 });
 
-function doSelect(selectAll) {
-    fmWrapper.querySelector('.files-select-all').checked = selectAll;
+function doSelect(isSelectAll) {
+    fmWrapper.querySelector('.files-select-all').checked = isSelectAll;
     [].forEach.call(allCheckboxes, function (checkbox) {
-        checkbox.checked = selectAll;
+        checkbox.checked = isSelectAll;
         checkbox.closest('.file-item')
-            .classList[selectAll ? 'add' : 'remove']('selected');
+            .classList[isSelectAll ? 'add' : 'remove']('selected');
     });
 }
 

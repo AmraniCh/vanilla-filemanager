@@ -9,6 +9,8 @@ if (!Element.prototype.closest) {
     proto.closest = function (selector) {
         var ele = this;
 
+        if (ele.matches(selector)) return ele;
+
         while (ele.parentElement) { // Check for the parent element
             var parent = ele.parentElement;
             if (parent.matches(selector)) {
@@ -30,8 +32,9 @@ if (!NodeList.prototype.forEach) {
     };
 }
 
-// A very simple polyfill to the classList property
-// Implemented methods : item, add, remove, contains
+// A very simple polyfill to the Element.classList property
+// Implemented methods :
+// item, add, remove, contains, toggle
 if (
     // Check if the classList property is defined under the base Element Object
     !('classList' in document.createElement('_'))
@@ -56,7 +59,9 @@ if (
     // classList.add()
     classListProto.add = function () {
         for (var i = 0; i < arguments.length; i++) {
-            this.push(arguments[i]);
+            if (!this.contains(arguments[i])) {
+                this.push(arguments[i]);
+            }
         }
 
         this._update();
@@ -83,6 +88,15 @@ if (
     // classList.contains()
     classListProto.contains = function (token) {
         return this.indexOf(token) !== -1;
+    };
+
+    // classList.toggle()
+    classListProto.toggle = function (token) {
+        if (!this.contains(token)) {
+            this.add(token);
+        } else {
+            this.remove(token);
+        }
     };
 
     // Attach the classList object to the Element prototype
