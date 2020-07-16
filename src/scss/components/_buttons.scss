@@ -35,14 +35,14 @@ $borderWidth: 1.8px;
 
     .btn-outline {
         @extend %btn;
-        background-color: transparent;
-        border: $borderWidth solid #FFF;
-        color: #FFF;
+        background-color: #FFF;
+        border: $textColor solid $borderWidth;
+        color: $textColor;
 
         &:hover {
-            background-color: getHoverColor(#FFF);
-            color: $textColor;
-            border-color: $textColor;
+            background-color: getHoverColor($mainColor);
+            color: #FFF;
+            border-color: #999;
         }
     }
 

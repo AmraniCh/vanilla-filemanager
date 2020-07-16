@@ -13,13 +13,14 @@
             .sidebar .brand,
             .btn-primary,
             .slidebar,
-            .modal,
+            .modal .modal-header,
             .badge {
                 @include change-theme-transition();
                 background-color: $main !important;
             }
 
-            .files-table .file-item.selected {
+            .files-table .file-item.selected,
+            .move-file-modal ul.files-list li.dir-item.selected:before {
                 @include change-theme-transition();
                 background-color: lighten($secondary, 8%) !important;
             }
@@ -38,6 +39,12 @@
                 @include change-theme-transition();
                 background-color: $main !important;
                 border: 0.05em solid $main !important;
+            }
+
+            .btn-outline {
+                &:hover {
+                    background-color: $main;
+                }
             }
 
             .btn-svg svg path {

@@ -19,9 +19,12 @@
     }
 
 
-    button, input, h1, h2, h3, h4, h5, h6, p {
+    button, input, h1, h2, h3, h4, h5, h6, p, label {
         @include font(roboto);
-        text-transform: capitalize;
+
+        &::first-letter {
+            text-transform: capitalize;
+        }
 
         * {
             font-family: inherit;

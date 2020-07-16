@@ -1,4 +1,5 @@
 $modalPadding: 25px;
+$modalBorderRadius: 4px;
 
 .fm-wrapper {
 
@@ -18,14 +19,13 @@ $modalPadding: 25px;
         top: 50%;
         left: 50%;
         width: 470px;
-        overflow: hidden;
-        border-radius: 2px;
-        box-shadow: 0 0 7px 1px #000;
+        box-shadow: 0 0 3px 1px #333;
+        border-radius: $modalBorderRadius;
         transform: translate(-50%, 200%);
         transition: transform .3s ease-out !important;
         opacity: 0;
         z-index: 999;
-        background-color: $mainColor;
+        background-color: #FFF;
         color: #FFF;
 
         &.show {
@@ -40,6 +40,9 @@ $modalPadding: 25px;
         .modal-header {
             position: relative;
             overflow: hidden;
+            background-color: $mainColor;
+            border-top-left-radius: $modalBorderRadius;
+            border-top-right-radius: $modalBorderRadius;
 
             .close {
                 @include vertical-center('absolute');
@@ -49,13 +52,15 @@ $modalPadding: 25px;
         }
 
         .modal-body {
-            background-color: #FFF;
             color: $textColor;
             padding: $modalPadding;
         }
 
         .modal-footer {
+            border: 1px solid $borderColor;
             padding: 15px $modalPadding;
+            border-bottom-left-radius: $modalBorderRadius;
+            border-bottom-right-radius: $modalBorderRadius;
             
             button:not(:last-of-type) {
                 margin-right: .5rem;

@@ -7,10 +7,10 @@ $editorHeight: 350px;
 
         #fm-editor {
             position: relative;
+            box-sizing: content-box;
             height: $editorHeight;
             overflow: auto;
             border: 1px solid #e4e6e8;
-            box-sizing: content-box;
             font-family: Consolas, sans-serif;
 
             * {
@@ -19,6 +19,7 @@ $editorHeight: 350px;
 
             .content-area, .line-numbers {
                 min-height: $editorHeight;
+                font-size: 1rem !important;
             }
 
             .content-area {
@@ -38,14 +39,12 @@ $editorHeight: 350px;
                 display: inline-block;
                 float: left;
                 width: 25px;
-                line-height: 125%;
                 border-right: 1px solid #e4e6e8;
                 background-color: #f3f3f3;
 
                 span {
                     display: block;
                     text-align: center;
-                    font-size: .9em;
                     color: #999;
                 }
             }
