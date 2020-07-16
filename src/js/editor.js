@@ -34,9 +34,6 @@ function appendNumber(number) {
     contentArea.addEventListener(event, updateLineNumbers);
 });
 
-// first line number
-updateLineNumbers();
-
 // A simple object to interact with the editor
 var FmEditor = function() {
 
@@ -61,6 +58,9 @@ var FmEditor = function() {
         updateLineNumbers();
     };
 };
+
+// first line number
+updateLineNumbers();
 
 // Attach the FmEditor to the window object
 window.FmEditor = new FmEditor();

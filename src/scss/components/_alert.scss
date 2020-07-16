@@ -12,11 +12,16 @@ $errorColor: #bd373a;
         margin-top: 10px;
         margin-bottom: 10px;
         font-size: font-size(1.4);
+        @include font(roboto);
         animation: fadeIn .3s ease-in-out;
 
         &.error {
             background-color: $errorColor;
             color:#FFF;
+
+            strong {
+                text-transform: capitalize;
+            }
         }
     }
 }

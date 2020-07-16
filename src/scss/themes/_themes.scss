@@ -1,7 +1,9 @@
 .fm-wrapper {
 
     @each $theme, $map in $theme-colors {
+
         &.#{$theme}#{'-theme'} {
+
             $main: map_get($map, 'main');
             $secondary: map-get($map, 'secondary');
 

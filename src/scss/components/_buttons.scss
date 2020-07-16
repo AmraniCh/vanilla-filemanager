@@ -86,6 +86,10 @@ $borderWidth: 1.8px;
         &[disabled] {
             opacity: .5;
         }
+
+        &:focus {
+            border-color: transparent;
+        }
     }
 
     .btn-upload {

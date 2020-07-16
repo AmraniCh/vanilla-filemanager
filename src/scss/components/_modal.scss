@@ -9,7 +9,7 @@ $modalBorderRadius: 4px;
         left: 0;
         bottom: 0;
         right: 0;
-        background-color: rgba(#000, .6);
+        background-color: rgba(#000, .8);
         transition: .5s;
         z-index: 0;
     }
@@ -21,11 +21,11 @@ $modalBorderRadius: 4px;
         width: 470px;
         box-shadow: 0 0 3px 1px #333;
         border-radius: $modalBorderRadius;
+        overflow: hidden;
         transform: translate(-50%, 200%);
         transition: transform .3s ease-out !important;
         opacity: 0;
-        z-index: 999;
-        background-color: #FFF;
+        z-index: 9;
         color: #FFF;
 
         &.show {
@@ -41,14 +41,16 @@ $modalBorderRadius: 4px;
             position: relative;
             overflow: hidden;
             background-color: $mainColor;
-            border-top-left-radius: $modalBorderRadius;
-            border-top-right-radius: $modalBorderRadius;
 
             .close {
                 @include vertical-center('absolute');
                 right: 10px;
                 font-size: 2rem;
             }
+        }
+
+        .modal-body, .modal-footer {
+            background-color: #FFF;
         }
 
         .modal-body {
@@ -59,8 +61,6 @@ $modalBorderRadius: 4px;
         .modal-footer {
             border: 1px solid $borderColor;
             padding: 15px $modalPadding;
-            border-bottom-left-radius: $modalBorderRadius;
-            border-bottom-right-radius: $modalBorderRadius;
             
             button:not(:last-of-type) {
                 margin-right: .5rem;

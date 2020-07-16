@@ -41,8 +41,7 @@ $filesListHeight: calc(100% - (#{$brandHeight} + #{$bottomHeight}));
             height: $filesListHeight;
             padding: 10px 15px;
             color: $textColor;
-            animation: sidebarContentAnimation .2s ease-in;
-            //transition: transform;
+            animation: sidebarContentAnimation .3s ease-in;
         }
 
         .bottom {

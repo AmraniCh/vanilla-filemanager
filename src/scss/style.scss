@@ -16,13 +16,14 @@
 @import "components/modal";
 @import "components/editor";
 @import "components/loading-skeleton";
+@import "components/alert";
 
 // Modals Components
 @import "components/modals/permissions-modal";
 @import "components/modals/info-modal";
 @import "components/modals/settings-modal";
 @import "components/modals/upload-modal";
-@import "components/modals/movefile-modal";
+@import "components/modals/move-file-modal";
 
 // Layout
 @import "modules/sidebar";
