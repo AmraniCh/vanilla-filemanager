@@ -1,0 +1,59 @@
+:root {
+    --main-color: #00112c;
+    --secondary-color: #0abf53;
+}
+
+.fm-wrapper .sidebar .brand,
+.fm-wrapper .btn-primary,
+.fm-wrapper .slidebar,
+.fm-wrapper .modal .modal-header,
+.fm-wrapper .badge {
+    -webkit-transition: background-color .5s linear;
+    transition: background-color .5s linear;
+    background-color: var(--main-color) !important;
+}
+
+.fm-wrapper .files-table .file-item.selected,
+.fm-wrapper .move-file-modal ul.files-list li.dir-item.selected:before {
+    -webkit-transition: background-color .5s linear;
+    transition: background-color .5s linear;
+    background-color: var(--secondary-color) !important;
+    opacity: .75;
+}
+
+.fm-wrapper .header,
+.fm-wrapper .footer,
+.fm-wrapper .btn-secondary,
+.fm-wrapper .upload-modal .files-to-upload .file-item .start-upload .progress .progress-bar,
+.fm-wrapper .movefile-modal ul.files-list li.dir-item.selected:before {
+    -webkit-transition: background-color .5s linear;
+    transition: background-color .5s linear;
+    background-color: var(--secondary-color) !important;
+}
+
+.fm-wrapper .checkbox input[type='checkbox']:checked + .checkbox-text:before {
+    -webkit-transition: background-color .5s linear;
+    transition: background-color .5s linear;
+    background-color: var(--main-color) !important;
+    border: 0.05em solid var(--main-color) !important;
+}
+
+.fm-wrapper .btn-outline:hover {
+    background-color: var(--main-color);
+}
+
+.fm-wrapper .btn-svg svg path {
+    -webkit-transition: background-color .5s linear;
+    transition: background-color .5s linear;
+    fill: var(--main-color);
+}
+
+.fm-wrapper.dark-red-theme .info-list .info-item .info-icon svg path {
+    -webkit-transition: background-color .5s linear;
+    transition: background-color .5s linear;
+    fill: var(--secondary-color);
+}
+
+.fm-wrapper .settings-modal ul.themes-list li.theme-option[data-theme='default-theme'] {
+    border-color: var(--secondary-color) var(--secondary-color) var(--main-color)  var(--main-color);
+}
