@@ -6,11 +6,12 @@ $rootFontSize: 10px;
 
 // Colors
 $colors: (
-    'blue': #3f4c67,
-    'black': #58595b,
+    'black-dark':  #333333,
+    'black-light': #58595b,
     'gray-dark': #e4e6e8,
     'gray-slate': #68808C,
     'white': #f3f3f3,
+    'blue': #1793d1,
     'cyan': #71d6fc,
 );
 
@@ -26,8 +27,8 @@ $theme-colors: (
     )
 );
 
-$mainColor: map-get($colors, 'blue');
-$secondaryColor: map_get($colors, 'gray-slate');
-$textColor: map-get($colors, 'black');
+$mainColor: map-get($colors, 'black-dark');
+$secondaryColor: map_get($colors, 'blue');
+$textColor: map-get($colors, 'black-light');
 $focusColor: map-get($colors, 'cyan');
 $borderColor: map_get($colors, 'gray-dark');
