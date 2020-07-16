@@ -1,14 +1,17 @@
 {
   "name": "filemanager-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "filemanager-template is a lightweight, cross-platform template written in HTML5 & vanilla javascript and sass without any dependencies",
   "scripts": {
-    "css-compile": "node-sass src/scss/style.scss dist/filemanager.min.css --output-style compressed",
-    "css-prefix": "postcss dist/filemanager.min.css --replace --config postcss.config.js",
+    "css-compile": "node-sass src/scss/style.scss dist/filemanager-template.css",
+    "css-prefix": "postcss dist/filemanager-template.css --replace --config postcss.config.js",
+    "css-build-prefix": "postcss dist/filemanager-template.min.css --replace --config postcss.config.js",
     "css-watch": "npm run css-compile -- -w",
+    "css-build": "node-sass src/scss/style.scss dist/filemanager-template.min.css --output-style compressed",
+    "js-compile": "rollup src/js/main.js --file dist/filemanager-template.js --format iife",
     "js-bundle": "rollup -c",
     "js-watch": "rollup -c -w",
-    "build": "npm run css-compile && npm run js-bundle && npm run css-prefix"
+    "build": "npm run css-build && npm run js-bundle && npm run css-build-prefix"
   },
   "repository": {
     "type": "git",

@@ -7,4 +7,5 @@
 - [ ] Drag and drop. 
 
 ### Design Improvements.
-- [ ] Animated stripes on the upload progresses. 
+- [ ] Animated stripes on the upload progresses.
+- [ ] Reset modals state when closing it.

@@ -7,11 +7,6 @@
             $main: map_get($map, 'main');
             $secondary: map-get($map, 'secondary');
 
-            .loader-container .loader {
-                border-color: $main;
-                border-right-color: $secondary;
-            }
-
             .sidebar .brand,
             .btn-primary,
             .slidebar,
