@@ -23,5 +23,9 @@ $errorColor: #bd373a;
                 text-transform: capitalize;
             }
         }
+
+        &.show {
+            display: block;
+        }
     }
 }
