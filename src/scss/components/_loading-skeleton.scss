@@ -1,4 +1,5 @@
 .fm-wrapper {
+
     .loading {
         position: relative;
         overflow: hidden;
@@ -11,7 +12,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #E2E2E2;
+            background-color: #EEE;
             z-index: 1;
         }
 
@@ -24,8 +25,8 @@
             width: 100%;
             height: 100%;
             transform: translateX(-100%);
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .2), transparent);
-            animation: loadingAnimation .7s infinite ease-in-out;
+            background: linear-gradient(90deg, transparent, #DDD, transparent);
+            animation: loadingAnimation .5s infinite ease-in-out;
             z-index: 2;
         }
     }
