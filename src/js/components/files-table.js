@@ -119,13 +119,13 @@ window.addEventListener('keyup', function (e) {
     if ((isArrowUp || isArrowDown) && !fmWrapper.querySelector('.modal.show')) {
         var index = getSelectedIndex();
 
-        if (index === 1 && isArrowDown) {
+        if (index >= 1 && index !== fileItems.length && isArrowDown) {
             index++;
         } else if (index > 1 && isArrowUp) {
             index--;
         } else if (index === 1 && isArrowUp) {
             index = fileItems.length;
-        } else { // No file selected 'index = -1'
+        } else {
             index = 1;
         }
 
