@@ -116,7 +116,7 @@ window.addEventListener('keyup', function (e) {
     var isArrowUp = (e.key === 'Up' || e.key === 'ArrowUp');
     var isArrowDown = (e.key === 'Down' || e.key === 'ArrowDown');
 
-    if (isArrowUp || isArrowDown) {
+    if ((isArrowUp || isArrowDown) && !fmWrapper.querySelector('.modal.show')) {
         var index = getSelectedIndex();
 
         if (index === 1 && isArrowDown) {
