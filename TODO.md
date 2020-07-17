@@ -1,5 +1,9 @@
 # TODO
 
+### Upgrade
+- [ ] Using flex box (>= IE10).
+- [ ] Using js dataset API (>= IE11)
+
 ### Upcoming features.
 - [ ] Mobile responsive.
 - [ ] Change table view ? (files with just icon and name).
