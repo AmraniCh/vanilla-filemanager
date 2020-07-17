@@ -10,7 +10,7 @@
     "css-build": "node-sass src/scss/style.scss dist/filemanager-template.min.css --output-style compressed",
     "js-compile": "rollup src/js/main.js --file dist/filemanager-template.js --format iife",
     "js-bundle": "rollup -c",
-    "js-watch": "rollup -c -w",
+    "js-watch": "npm run js-compile -- -w",
     "build": "npm run css-build && npm run js-bundle && npm run css-build-prefix"
   },
   "repository": {
