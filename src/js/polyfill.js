@@ -32,6 +32,20 @@ if (!NodeList.prototype.forEach) {
     };
 }
 
+
+// Adding the forEach method to the DOMTokenList Object returned by the HTMLElement.classList property (IE10 & IE11)
+if (
+    'classList' in HTMLElement.prototype
+    && !('forEach' in document.createElement('_').classList)
+) {
+
+    DOMTokenList.prototype.forEach = function (callbackfn, thisArg) {
+        for (var i = 0; i < this.length; i++) {
+            callbackfn.call(thisArg, this[i], i, this);
+        }
+    };
+}
+
 // A very simple polyfill to the Element.classList property
 // Implemented methods :
 // item, add, remove, contains, toggle
@@ -39,7 +53,6 @@ if (
     // Check if the classList property is defined under the base Element Object
     !('classList' in document.createElement('_'))
 ) {
-
     var classList = function (element) {
         element.className.split(' ').forEach(function (name) {
             this.push(name);
