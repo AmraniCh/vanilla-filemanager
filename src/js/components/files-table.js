@@ -113,8 +113,8 @@ fmWrapper.addEventListener('click', function (e) {
 
 // ArrowUp and ArrowDown event
 window.addEventListener('keyup', function (e) {
-    var isArrowUp = (e.code === 'ArrowUp');
-    var isArrowDown = (e.code === 'ArrowDown');
+    var isArrowUp = (e.key === 'Up' || e.key === 'ArrowUp');
+    var isArrowDown = (e.key === 'Down' || e.key === 'ArrowDown');
 
     if (isArrowUp || isArrowDown) {
         var index = getSelectedIndex();
@@ -192,3 +192,4 @@ function selectByIndex(index) {
     item.classList.add('selected');
     checkbox.checked = true;
 }
+
