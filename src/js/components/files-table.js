@@ -34,7 +34,7 @@ fileItems.forEach(function (item) {
 
             this.querySelector('.checkbox input[type="checkbox"]').checked = true;
 
-            showRightButtons(
+            showFooterRightButtons(
                 true,
                 this.closest('.file-item').getAttribute('data-type')
             );
@@ -51,14 +51,19 @@ allCheckboxes.forEach(function (item) {
 
         var selectedItems = document.querySelectorAll('.file-item.selected');
 
+        // All files was selected || no file selected
+        if (fileItems.length === selectedItems.length || !selectedItems.length) {
+            tableSelectAllCheckbox.checked = this.checked;
+        }
+
         if (selectedItems.length > 1) {
-            showRightButtons(true, 'all');
+            showFooterRightButtons(true, 'all');
 
         } else if (selectedItems.length === 1) {
-            showRightButtons(true, selectedItems[0].getAttribute('data-type'));
+            showFooterRightButtons(true, selectedItems[0].getAttribute('data-type'));
 
         } else {
-            showRightButtons(false);
+            showFooterRightButtons(false);
         }
     });
 });
@@ -67,36 +72,37 @@ allCheckboxes.forEach(function (item) {
 tableSelectAllCheckbox.addEventListener("change", function () {
     if (this.checked) {
         doSelect(true);
-        showRightButtons(true, 'all');
+        showFooterRightButtons(true, 'all');
     } else {
         doSelect(false);
-        showRightButtons(false);
+        showFooterRightButtons(false);
     }
 });
 
 // Toolbar button select all
 toolbarSelectAllBtn.addEventListener('click', function () {
     doSelect(true);
-    showRightButtons(true, 'all');
+    showFooterRightButtons(true, 'all');
 });
 
 // Toolbar button unselect all
 toolbarUnSelectAllBtn.addEventListener('click', function () {
     doSelect(false);
-    showRightButtons(false);
+    showFooterRightButtons(false);
 });
 
-// Unselect Table Files when clicking out of the table
+// Unselect Table Files when clicking on some where
 fmWrapper.addEventListener('click', function (e) {
     if (!e.target.closest('.files-table')
         && !e.target.closest('.files-select')
         && !e.target.closest('.files-unselect')
         && !e.target.closest('.footer')
         && !e.target.closest('.modal')
+        || e.target.closest('*[data-close="modal"]')
     ) {
         tableSelectAllCheckbox.checked = false;
         doSelect(false);
-        showRightButtons(false);
+        showFooterRightButtons(false);
     }
 });
 
@@ -113,16 +119,19 @@ function doSelect(isSelectAll) {
     });
 }
 
-function showRightButtons(show, type) {
+function showFooterRightButtons(show, filter) {
 
     var exceptions = {
+        // show all action for files
         'file': [],
+        // Cannot edit or download files
         'dir': ['edit', 'download'],
+        // Hide all actions except 'remove' when select more than one file
         'all': ['edit', 'rename', 'move', 'download', 'permissions', 'info'],
     };
 
     footerRightButtons.forEach(function (button) {
-        if (type && exceptions[type].indexOf(
+        if (filter && exceptions[filter].indexOf(
             button.getAttribute('data-action')
         ) !== -1) {
             button.disabled = true;
