@@ -113,19 +113,25 @@ fmWrapper.addEventListener('click', function (e) {
 
 // ArrowUp and ArrowDown event
 window.addEventListener('keyup', function (e) {
+    var isArrowUp = (e.code === 'ArrowUp');
+    var isArrowDown = (e.code === 'ArrowDown');
 
-    var index = getSelectedIndex();
+    if (isArrowUp || isArrowDown) {
+        var index = getSelectedIndex();
 
-    if (index === 1 && e.code === 'ArrowDown') {
-        index++;
-    } else if (index > 1 && e.code === 'ArrowUp') {
-        index--;
-    } else { // No file selected index = -1
-        index = 1;
+        if (index === 1 && isArrowDown) {
+            index++;
+        } else if (index > 1 && isArrowUp) {
+            index--;
+        } else if (index === 1 && isArrowUp) {
+            index = fileItems.length;
+        } else { // No file selected 'index = -1'
+            index = 1;
+        }
+
+        doSelect(false);
+        selectByIndex(index);
     }
-
-    doSelect(false);
-    selectByIndex(index);
 });
 
 function doSelect(isSelectAll) {
