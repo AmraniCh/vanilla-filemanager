@@ -56,6 +56,11 @@ allCheckboxes.forEach(function (item) {
             tableSelectAllCheckbox.checked = this.checked;
         }
 
+        // Uncheck the select all checkbox when selecting one item && there is more than one file in the table
+        if (selectedItems.length === 1 && fileItems.length > 1) {
+            tableSelectAllCheckbox.checked = false;
+        }
+
         if (selectedItems.length > 1) {
             showFooterRightButtons(true, 'all');
 
@@ -106,6 +111,23 @@ fmWrapper.addEventListener('click', function (e) {
     }
 });
 
+// ArrowUp and ArrowDown event
+window.addEventListener('keyup', function (e) {
+
+    var index = getSelectedIndex();
+
+    if (index === 1 && e.code === 'ArrowDown') {
+        index++;
+    } else if (index > 1 && e.code === 'ArrowUp') {
+        index--;
+    } else { // No file selected index = -1
+        index = 1;
+    }
+
+    doSelect(false);
+    selectByIndex(index);
+});
+
 function doSelect(isSelectAll) {
 
     tableSelectAllCheckbox.checked = isSelectAll;
@@ -139,4 +161,28 @@ function showFooterRightButtons(show, filter) {
             button.disabled = !show;
         }
     });
+}
+
+function getSelectedIndex() {
+    var items = fmWrapper.querySelectorAll('.files-table .file-item');
+    var selected = fmWrapper.querySelector('.files-table .file-item.selected');
+
+    for (var i = 0; i < items.length; i++) {
+        if (items[i] === selected) {
+            return i + 1;
+        }
+    }
+
+    return -1;
+}
+
+function selectByIndex(index) {
+    var
+        item = fmWrapper.querySelector('.files-table .file-item:nth-child(' + index + ')'),
+        checkbox = item.querySelector('.checkbox input[type="checkbox"]');
+
+    showFooterRightButtons(true, item.getAttribute('data-type'));
+
+    item.classList.add('selected');
+    checkbox.checked = true;
 }
