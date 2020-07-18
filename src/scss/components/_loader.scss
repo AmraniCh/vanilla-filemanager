@@ -1,0 +1,44 @@
+.fm-wrapper {
+
+    .sidebar .files-list, .table-section {
+        position: relative;
+    }
+
+    .loader {
+        display: none;
+        position: absolute;
+        user-select: none;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(#FFF, .6);
+        z-index: 1;
+
+        &.show {
+            display: block;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 70px;
+            height: 50px;
+            width: 50px;
+            border-width: 10px;
+            border-color: $mainColor;
+            border-style: solid;
+            border-right-color: $secondaryColor;
+            border-left-color: $secondaryColor;
+            border-radius: 50%;
+            animation: loaderAnimation .5s linear infinite;
+            z-index: 9;
+        }
+    }
+}
