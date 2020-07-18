@@ -34,41 +34,34 @@ fileItems.forEach(function (item) {
 
             this.querySelector('.checkbox input[type="checkbox"]').checked = true;
 
-            showFooterRightButtons(
+            enableFooterRightButtons(
                 true,
                 this.closest('.file-item').getAttribute('data-type')
             );
+
+            selectAllCheckboxBehavior();
         }
     });
 });
 
 // Each checkbox change event
 allCheckboxes.forEach(function (item) {
-
+    
     item.addEventListener('change', function () {
 
         this.closest('.file-item').classList.toggle('selected');
 
-        var selectedItems = document.querySelectorAll('.file-item.selected');
+        selectAllCheckboxBehavior();
+        
+        // Enable footer right actions
+        if (tableSelectedItems.length > 1) {
+            enableFooterRightButtons(true, 'all');
 
-        // All files was selected || no file selected
-        if (fileItems.length === selectedItems.length || !selectedItems.length) {
-            tableSelectAllCheckbox.checked = this.checked;
-        }
-
-        // Uncheck the select all checkbox when selecting one item && there is more than one file in the table
-        if (selectedItems.length === 1 && fileItems.length > 1) {
-            tableSelectAllCheckbox.checked = false;
-        }
-
-        if (selectedItems.length > 1) {
-            showFooterRightButtons(true, 'all');
-
-        } else if (selectedItems.length === 1) {
-            showFooterRightButtons(true, selectedItems[0].getAttribute('data-type'));
+        } else if (tableSelectedItems.length === 1) {
+            enableFooterRightButtons(true, tableSelectedItems[0].getAttribute('data-type'));
 
         } else {
-            showFooterRightButtons(false);
+            enableFooterRightButtons(false);
         }
     });
 });
@@ -77,23 +70,23 @@ allCheckboxes.forEach(function (item) {
 tableSelectAllCheckbox.addEventListener("change", function () {
     if (this.checked) {
         doSelect(true);
-        showFooterRightButtons(true, 'all');
+        enableFooterRightButtons(true, 'all');
     } else {
         doSelect(false);
-        showFooterRightButtons(false);
+        enableFooterRightButtons(false);
     }
 });
 
 // Toolbar button select all
 toolbarSelectAllBtn.addEventListener('click', function () {
     doSelect(true);
-    showFooterRightButtons(true, 'all');
+    enableFooterRightButtons(true, 'all');
 });
 
 // Toolbar button unselect all
 toolbarUnSelectAllBtn.addEventListener('click', function () {
     doSelect(false);
-    showFooterRightButtons(false);
+    enableFooterRightButtons(false);
 });
 
 // Unselect Table Files when clicking on some where
@@ -107,14 +100,22 @@ fmWrapper.addEventListener('click', function (e) {
     ) {
         tableSelectAllCheckbox.checked = false;
         doSelect(false);
-        showFooterRightButtons(false);
+        enableFooterRightButtons(false);
     }
 });
 
 // ArrowUp and ArrowDown event
 window.addEventListener('keyup', function (e) {
-    var isArrowUp = (e.key === 'Up' || e.key === 'ArrowUp');
-    var isArrowDown = (e.key === 'Down' || e.key === 'ArrowDown');
+    
+    var isArrowUp = (
+        e.key === 'Up' // IE compatibility
+        || e.key === 'ArrowUp'
+    );
+
+    var isArrowDown = (
+        e.key === 'Down' // IE compatibility
+        || e.key === 'ArrowDown'
+    );
 
     if ((isArrowUp || isArrowDown) && !fmWrapper.querySelector('.modal.show')) {
         var index = getSelectedIndex();
@@ -147,7 +148,7 @@ function doSelect(isSelectAll) {
     });
 }
 
-function showFooterRightButtons(show, filter) {
+function enableFooterRightButtons(enable, filter) {
 
     var exceptions = {
         // show all action for files
@@ -164,7 +165,7 @@ function showFooterRightButtons(show, filter) {
         ) !== -1) {
             button.disabled = true;
         } else {
-            button.disabled = !show;
+            button.disabled = !enable;
         }
     });
 }
@@ -187,9 +188,23 @@ function selectByIndex(index) {
         item = fmWrapper.querySelector('.files-table .file-item:nth-child(' + index + ')'),
         checkbox = item.querySelector('.checkbox input[type="checkbox"]');
 
-    showFooterRightButtons(true, item.getAttribute('data-type'));
+    enableFooterRightButtons(true, item.getAttribute('data-type'));
 
     item.classList.add('selected');
     checkbox.checked = true;
 }
 
+function selectAllCheckboxBehavior() {
+    // refresh state
+    tableSelectedItems = table.querySelectorAll('.file-item.selected');
+
+    // All files was selected then make the select all checkbox checked
+    if (fileItems.length === tableSelectedItems.length) {
+        tableSelectAllCheckbox.checked = true;
+    }
+
+    // Uncheck the select all checkbox while the selected items count is not equals the count of all items
+    if (tableSelectedItems.length !== fileItems.length) {
+        tableSelectAllCheckbox.checked = false;
+    }
+}
