@@ -41,16 +41,20 @@ var FmEditor = function() {
         return (typeof content !== 'string');
     }
 
-    this.add = function (content) {
+    this.set = function (content) {
+        if (!validateContent) return;
+        contentArea.value = content;
+        updateLineNumbers();
+    };
+
+    this.append = function (content) {
         if (!validateContent) return;
         contentArea.value += content;
         updateLineNumbers();
     };
 
-    this.replace = function (content) {
-        if (!validateContent) return;
-        contentArea.value = content;
-        updateLineNumbers();
+    this.get = function () {
+        return contentArea.value;
     };
 
     this.clear = function () {
@@ -63,4 +67,4 @@ var FmEditor = function() {
 updateLineNumbers();
 
 // Attach the FmEditor to the window object
-window.FmEditor = new FmEditor();
+window.fmEditor = new FmEditor();
