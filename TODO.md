@@ -16,5 +16,4 @@
 ### Design Improvements.
 - [ ] Animated stripes on the upload progresses.
 - [ ] Reset modals state when closing it.
-- [ ] Add loaders in both files table and sidebar for ajax requests. 
 - [ ] Add column sorting feature for the files table.
