@@ -1,6 +1,7 @@
 .fm-wrapper {
 
-    .sidebar .files-list, .table-section {
+    .sidebar .files-section,
+    .main-panel .table-section {
         position: relative;
     }
 
@@ -12,7 +13,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(#FFF, .6);
+        background-color: rgba(#FFF, .8);
         z-index: 1;
 
         &.show {
