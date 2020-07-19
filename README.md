@@ -4,31 +4,34 @@
 
 filemanager-template is a lightweight, cross-browser template written in HTML5 & vanilla javascript and sass without any dependencies and frameworks. 
 
+![](https://user-images.githubusercontent.com/49124992/87870746-ec072e80-c9a2-11ea-8bd1-480d1050bee8.gif)
+
 # Features 
 
-* IE9 support.
+* Support IE9 and above.
 * Theme system.
 * Integrated File Editor (no syntax highlighting).
 * Optimized for ajax applications.
 
 # Usage
 
-Use the HTML Markup in `index.html` and include the distribution files in `dist` folder to your application.
+Use the HTML Markup in `index.html` or `dist/index.html`(no comments) and include the distribution files in `dist` folder to your application.
 
 ## Dealing with the integrated editor 
 
-`window.FmEditor` Object provides some basic methods to manipulate data in the editor, this is the supported methods.
+`window.FmEditor` Object provides some basic methods to manipulate data in the editor.
 
-**method**        | description
----               | ---
-add(content)      | Append content.
-replace(content)  | Replace the entire content.
-clear()           | Clear content.
+**Supported methods :**
+
+* fmEditor.add(content)
+* fmEditor.append(content)
+* fmEditor.get()
+* fmEditor.clear()
 
 **Example**
 
 ```js
-FmEditor.add('Hello world!');
+fmEditor.add('Hello world!');
 ```
 
 ## Modals error alerts
@@ -89,4 +92,10 @@ The HTML Markup haves a big lines of code if you notice, that because of inline 
 
 * Fewer http requests, as svgs are part of the DOM no need for another http request, unlike icon fonts.
 
+# IE Compatibility
 
+In regard to support some legacy browsers like IE9, we use polyfills to mimic the functionality of some js methods, however the template working just fine in IE9 and above. 
+
+# Contribution
+
+If you find some bugs or you have some suggestions to improve this project, or just you want to improve and practice you skills in javascript and sass then this is a good place to, take a lock in `TODO.md`, there is a lot of things to improve and features to add, however if you want to contribute fork the repo and send a pull request with your feature to add, thank you!.
