@@ -37,7 +37,7 @@ $filesListHeight: calc(100% - (#{$brandHeight} + #{$bottomHeight}));
             }
         }
 
-        ul.files-list {
+        .files-section {
             height: $filesListHeight;
             padding: 10px 15px;
             color: $textColor;

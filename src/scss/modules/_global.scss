@@ -39,41 +39,50 @@
         text-transform: capitalize;
     }
 
-    ul.files-list {
+    /**
+     * Global style for files list items.
+     *
+     * - .sidebar .files-section
+     * - .move-file-modal .files-section
+     */
+    .files-section {
         overflow: auto;
 
-        li.item {
-            padding: 4px;
-            cursor: pointer;
+        .files-list {
 
-            &.dir-item[data-open=false]:hover, &.file-item:hover {
-                opacity: .8;
-            }
+            li.item {
+                padding: 4px;
+                cursor: pointer;
 
-            &[data-open=false] {
-                > .icon-expend {
-                    display: none;
+                &.dir-item[data-open=false]:hover, &.file-item:hover {
+                    opacity: .8;
                 }
-            }
 
-            &[data-open=true] {
-                > .icon-contract {
-                    display: none;
+                &[data-open=false] {
+                    > .icon-expend {
+                        display: none;
+                    }
                 }
-            }
 
-            .svg-icon {
-                user-select: none;
-                margin-right: 5px;
-            }
+                &[data-open=true] {
+                    > .icon-contract {
+                        display: none;
+                    }
+                }
 
-            .name {
-                vertical-align: middle;
-            }
+                .svg-icon {
+                    user-select: none;
+                    margin-right: 5px;
+                }
 
-            .sub-files {
-                transition: all 2s ease;
-                margin-left: 10px;
+                .name {
+                    vertical-align: middle;
+                }
+
+                .sub-files {
+                    transition: all 2s ease;
+                    margin-left: 10px;
+                }
             }
         }
     }
