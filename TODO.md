@@ -3,7 +3,8 @@
 ### Code Improvements.
 - [ ] Using flex box (>= IE10).
 - [ ] Using js dataset API (>= IE11).
-- [ ] Moving to ES6.
+- [ ] Moving to ES6 (No IE Support => using babel).
+- [ ] Improve polyfills following the spec.
 
 ### Upcoming features.
 - [ ] Mobile responsive.
