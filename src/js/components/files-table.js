@@ -39,7 +39,7 @@ fileItems.forEach(function (item) {
                 this.closest('.file-item').getAttribute('data-type')
             );
 
-            selectAllCheckboxBehavior();
+            selectAllCheckboxUpdate();
         }
     });
 });
@@ -50,8 +50,6 @@ allCheckboxes.forEach(function (item) {
     item.addEventListener('change', function () {
 
         this.closest('.file-item').classList.toggle('selected');
-
-        selectAllCheckboxBehavior();
         
         // Enable footer right actions
         if (tableSelectedItems.length > 1) {
@@ -63,6 +61,8 @@ allCheckboxes.forEach(function (item) {
         } else {
             enableFooterRightButtons(false);
         }
+
+        selectAllCheckboxUpdate();
     });
 });
 
@@ -98,9 +98,9 @@ fmWrapper.addEventListener('click', function (e) {
         && !e.target.closest('.modal')
         || e.target.closest('*[data-close="modal"]')
     ) {
-        tableSelectAllCheckbox.checked = false;
         doSelect(false);
         enableFooterRightButtons(false);
+        selectAllCheckboxUpdate();
     }
 });
 
@@ -194,17 +194,10 @@ function selectByIndex(index) {
     checkbox.checked = true;
 }
 
-function selectAllCheckboxBehavior() {
+function selectAllCheckboxUpdate() {
     // refresh state
     tableSelectedItems = table.querySelectorAll('.file-item.selected');
 
-    // All files was selected then make the select all checkbox checked
-    if (fileItems.length === tableSelectedItems.length) {
-        tableSelectAllCheckbox.checked = true;
-    }
-
-    // Uncheck the select all checkbox while the selected items count is not equals the count of all items
-    if (tableSelectedItems.length !== fileItems.length) {
-        tableSelectAllCheckbox.checked = false;
-    }
+    // Check or uncheck the table select all checkbox
+    tableSelectAllCheckbox.checked = (fileItems.length === tableSelectedItems.length);
 }

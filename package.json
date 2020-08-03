@@ -11,7 +11,7 @@
     "js-compile": "rollup src/js/main.js --file dist/filemanager-template.js --format iife",
     "js-bundle": "rollup -c",
     "js-watch": "npm run js-compile -- -w",
-    "prod": "npm run css-compile && npm run js-compile && npm run css-prefix",
+    "dev": "npm run css-compile && npm run js-compile && npm run css-prefix",
     "build": "npm run css-build && npm run js-bundle && npm run css-build-prefix"
   },
   "repository": {
