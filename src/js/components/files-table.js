@@ -1,69 +1,83 @@
-// DOM elements
+import {on} from "../helpers";
+
+// Static DOM elements
 var
     // Table
     table = fmWrapper.querySelector('.files-table'),
-    fileItems = table.querySelectorAll('.file-item'),
-    allCheckboxes = table.querySelectorAll('.file-item .checkbox input[type="checkbox"]'),
     tableSelectAllCheckbox = table.querySelector('.files-select-all'),
-    tableSelectedItems = table.querySelectorAll('.file-item.selected'),
     // Toolbar buttons
     toolbarSelectAllBtn = fmWrapper.querySelector('.toolbar .files-select'),
     toolbarUnSelectAllBtn = fmWrapper.querySelector('.toolbar .files-unselect'),
     // Footer right buttons
     footerRightButtons = fmWrapper.querySelectorAll('.right-buttons *[data-action]');
 
+// Dynamic DOM elements
+function getTableItems() {
+    return table.querySelectorAll('.file-item');
+}
+
+function getTableSelectedItems()
+{
+    return table.querySelectorAll('.file-item.selected');
+}
+
+function getTableAllCheckboxes()
+{
+    return table.querySelectorAll('.file-item .checkbox input[type="checkbox"]');
+}
+
 // Table click item
-fileItems.forEach(function (item) {
+on('click', '.file-item', function (e) {
+    if (!e.target.closest('.checkbox')) { // Ignore event bubbling for the checkbox
 
-    item.addEventListener('click', function (e) {
+        if (!e.shiftKey && !e.ctrlKey) { // Multiple selection with shift & ctrl keys
+            var fileItems = getTableSelectedItems();
+            var allCheckboxes = getTableAllCheckboxes();
 
-        if (!e.target.closest('.checkbox')) { // Ignore event bubbling for the checkbox
-
-            if (!e.shiftKey && !e.ctrlKey) { // Multiple selection with shift & ctrl keys
-                fileItems.forEach(function (item) {
-                    item.classList.remove('selected');
-                });
-                allCheckboxes.forEach(function (item) {
-                    item.checked = false;
-                });
-            }
-
-            tableSelectAllCheckbox.checked = false;
-
-            this.classList.add('selected');
-
-            this.querySelector('.checkbox input[type="checkbox"]').checked = true;
-
-            enableFooterRightButtons(
-                true,
-                this.closest('.file-item').getAttribute('data-type')
-            );
-
-            selectAllCheckboxUpdate();
+            fileItems.forEach(function (item) {
+                item.classList.remove('selected');
+            });
+            allCheckboxes.forEach(function (item) {
+                item.checked = false;
+            });
         }
-    });
+
+        tableSelectAllCheckbox.checked = false;
+
+        var item = e.target.closest('.file-item');
+
+        item.classList.add('selected');
+
+        item.querySelector('.checkbox input[type="checkbox"]').checked = true;
+
+        enableFooterRightButtons(
+            true,
+            item.closest('.file-item').getAttribute('data-type')
+        );
+
+        selectAllCheckboxUpdate();
+    }
 });
 
 // Each checkbox change event
-allCheckboxes.forEach(function (item) {
-    
-    item.addEventListener('change', function () {
+on('change', '.file-item .checkbox input[type="checkbox"]', function (e) {
 
-        this.closest('.file-item').classList.toggle('selected');
-        
-        // Enable footer right actions
-        if (tableSelectedItems.length > 1) {
-            enableFooterRightButtons(true, 'all');
+    e.target.closest('.file-item').classList.toggle('selected');
 
-        } else if (tableSelectedItems.length === 1) {
-            enableFooterRightButtons(true, tableSelectedItems[0].getAttribute('data-type'));
+    var tableSelectedItems = getTableSelectedItems();
 
-        } else {
-            enableFooterRightButtons(false);
-        }
+    // Enable footer right actions
+    if (tableSelectedItems.length > 1) {
+        enableFooterRightButtons(true, 'all');
 
-        selectAllCheckboxUpdate();
-    });
+    } else if (tableSelectedItems.length === 1) {
+        enableFooterRightButtons(true, tableSelectedItems[0].getAttribute('data-type'));
+
+    } else {
+        enableFooterRightButtons(false);
+    }
+
+    selectAllCheckboxUpdate();
 });
 
 // Table Select All
@@ -106,7 +120,7 @@ fmWrapper.addEventListener('click', function (e) {
 
 // ArrowUp and ArrowDown event
 window.addEventListener('keyup', function (e) {
-    
+
     var isArrowUp = (
         e.key === 'Up' // IE compatibility
         || e.key === 'ArrowUp'
@@ -116,6 +130,8 @@ window.addEventListener('keyup', function (e) {
         e.key === 'Down' // IE compatibility
         || e.key === 'ArrowDown'
     );
+
+    var fileItems = getTableItems();
 
     if ((isArrowUp || isArrowDown) && !fmWrapper.querySelector('.modal.show')) {
         var index = getSelectedIndex();
@@ -136,6 +152,8 @@ window.addEventListener('keyup', function (e) {
 });
 
 function doSelect(isSelectAll) {
+
+    var allCheckboxes = getTableAllCheckboxes();
 
     tableSelectAllCheckbox.checked = isSelectAll;
 
@@ -171,7 +189,7 @@ function enableFooterRightButtons(enable, filter) {
 }
 
 function getSelectedIndex() {
-    var items = fmWrapper.querySelectorAll('.files-table .file-item');
+    var items = getTableItems();
     var selected = fmWrapper.querySelector('.files-table .file-item.selected');
 
     for (var i = 0; i < items.length; i++) {
@@ -196,7 +214,8 @@ function selectByIndex(index) {
 
 function selectAllCheckboxUpdate() {
     // refresh state
-    tableSelectedItems = table.querySelectorAll('.file-item.selected');
+    var tableSelectedItems = getTableSelectedItems();
+    var fileItems = getTableItems();
 
     // Check or uncheck the table select all checkbox
     tableSelectAllCheckbox.checked = (fileItems.length === tableSelectedItems.length);
