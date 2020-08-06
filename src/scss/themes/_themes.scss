@@ -53,6 +53,12 @@
                 @include change-theme-transition();
                 fill: $secondary;
             }
+
+            .loader:after {
+                border-color: $main;
+                border-right-color: $secondary;
+                border-left-color: $secondary;
+            }
         }
     }
 }
