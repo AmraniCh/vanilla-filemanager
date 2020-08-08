@@ -2,7 +2,8 @@
 var
     editor = fmWrapper.querySelector('#fm-editor'),
     lineNumbers = editor.querySelector('.line-numbers'),
-    contentArea = editor.querySelector('.content-area');
+    contentArea = editor.querySelector('.content-area'),
+    pendingDiv = editor.querySelector('.pending');
 
 function updateLineNumbers() {
     var
@@ -60,6 +61,10 @@ var FmEditor = function() {
     this.clear = function () {
         contentArea.value = '';
         updateLineNumbers();
+    };
+
+    this.toggleLoading = function () {
+        pendingDiv.classList.toggle('show');
     };
 };
 

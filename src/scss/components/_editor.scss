@@ -13,6 +13,21 @@ $editorHeight: 350px;
             border: 1px solid #e4e6e8;
             font-family: Consolas, sans-serif;
 
+            .pending {
+                display: none;
+                padding: 10px;
+                background-color: #f4e5d1;
+
+                &.show {
+                    display: block;
+                }
+
+                &.show ~ .content-area {
+                    pointer-events: none;
+                    background-color: #f4f4f4;
+                }
+            }
+
             * {
                 font-family: inherit;
             }
