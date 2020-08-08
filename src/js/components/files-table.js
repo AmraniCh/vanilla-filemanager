@@ -27,9 +27,8 @@ function getTableAllCheckboxes()
 }
 
 // Table click item
-on('click', '.file-item', function (e) {
+on('click', '.files-table .file-item', function (e) {
     if (!e.target.closest('.checkbox')) { // Ignore event bubbling for the checkbox
-
         if (!e.shiftKey && !e.ctrlKey) { // Multiple selection with shift & ctrl keys
             var fileItems = getTableSelectedItems();
             var allCheckboxes = getTableAllCheckboxes();
@@ -50,10 +49,7 @@ on('click', '.file-item', function (e) {
 
         item.querySelector('.checkbox input[type="checkbox"]').checked = true;
 
-        enableFooterRightButtons(
-            true,
-            item.closest('.file-item').getAttribute('data-type')
-        );
+        enableFooterRightButtons(true, item.closest('.file-item').getAttribute('data-type'));
 
         selectAllCheckboxUpdate();
     }
@@ -68,11 +64,9 @@ on('change', '.file-item .checkbox input[type="checkbox"]', function (e) {
 
     // Enable footer right actions
     if (tableSelectedItems.length > 1) {
-        enableFooterRightButtons(true, 'all');
-
+        enableFooterRightButtons(true, 'collection');
     } else if (tableSelectedItems.length === 1) {
         enableFooterRightButtons(true, tableSelectedItems[0].getAttribute('data-type'));
-
     } else {
         enableFooterRightButtons(false);
     }
@@ -84,7 +78,7 @@ on('change', '.file-item .checkbox input[type="checkbox"]', function (e) {
 tableSelectAllCheckbox.addEventListener("change", function () {
     if (this.checked) {
         doSelect(true);
-        enableFooterRightButtons(true, 'all');
+        enableFooterRightButtons(true, 'collection');
     } else {
         doSelect(false);
         enableFooterRightButtons(false);
@@ -94,7 +88,7 @@ tableSelectAllCheckbox.addEventListener("change", function () {
 // Toolbar button select all
 toolbarSelectAllBtn.addEventListener('click', function () {
     doSelect(true);
-    enableFooterRightButtons(true, 'all');
+    enableFooterRightButtons(true, 'collection');
 });
 
 // Toolbar button unselect all
@@ -120,7 +114,6 @@ fmWrapper.addEventListener('click', function (e) {
 
 // ArrowUp and ArrowDown event
 window.addEventListener('keyup', function (e) {
-
     var isArrowUp = (
         e.key === 'Up' // IE compatibility
         || e.key === 'ArrowUp'
@@ -167,14 +160,13 @@ function doSelect(isSelectAll) {
 }
 
 function enableFooterRightButtons(enable, filter) {
-
     var exceptions = {
         // show all action for files
         'file': [],
         // Cannot edit or download files
         'dir': ['edit', 'download'],
         // Hide all actions except 'remove' when select more than one file
-        'all': ['edit', 'rename', 'move', 'download', 'permissions', 'info'],
+        'collection': ['edit', 'rename', 'move', 'download', 'permissions', 'info'],
     };
 
     footerRightButtons.forEach(function (button) {
