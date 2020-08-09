@@ -46,12 +46,16 @@ var FmEditor = function() {
         if (!validateContent) return;
         contentArea.value = content;
         updateLineNumbers();
+
+        return this;
     };
 
     this.append = function (content) {
         if (!validateContent) return;
         contentArea.value += content;
         updateLineNumbers();
+
+        return this;
     };
 
     this.get = function () {
@@ -61,10 +65,20 @@ var FmEditor = function() {
     this.clear = function () {
         contentArea.value = '';
         updateLineNumbers();
+
+        return this;
     };
 
-    this.toggleLoading = function () {
-        pendingDiv.classList.toggle('show');
+    this.showLoading = function () {
+        pendingDiv.classList.add('show');
+
+        return this;
+    };
+
+    this.hideLoading = function () {
+        pendingDiv.classList.remove('show');
+
+        return this;
     };
 };
 
