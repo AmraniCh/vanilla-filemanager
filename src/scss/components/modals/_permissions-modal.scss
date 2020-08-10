@@ -1,6 +1,11 @@
 .fm-wrapper {
 
     .permissions-modal {
+
+        .filename {
+            white-space: pre;
+        }
+
         .perm-table {
             width: 100%;
             margin-bottom: 15px;

@@ -1,29 +1,31 @@
 .fm-wrapper {
+    .info-modal {
+        .info-list {
+            .info-item {
 
-    .info-list {
-
-        .info-item {
-
-            &:not(:last-of-type) {
-                margin-bottom: 15px;
-            }
-
-            .info-icon, .info-text {
-                vertical-align: middle;
-            }
-
-            .info-icon {
-                display: inline-block;
-                margin-right: 8px;
-                height: 24px;
-
-                svg path {
-                    fill: $secondaryColor;
+                &:not(:last-of-type) {
+                    margin-bottom: 15px;
                 }
-            }
 
-            .info-text {
-                color: $textColor;
+                .info-icon,
+                .info-text {
+                    vertical-align: middle;
+                }
+
+                .info-icon {
+                    display: inline-block;
+                    margin-right: 8px;
+                    height: 24px;
+
+                    svg path {
+                        fill: $secondaryColor;
+                    }
+                }
+
+                .info-text {
+                    white-space: pre;
+                    color: $textColor;
+                }
             }
         }
     }

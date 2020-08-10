@@ -4,6 +4,10 @@
 
         .moving-to {
             font-weight: normal;
+
+            .source, .destination {
+                white-space: pre;
+            }
         }
 
         .files-section {

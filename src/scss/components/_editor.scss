@@ -15,6 +15,10 @@ $editorHeight: 350px;
 
             .pending {
                 display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
                 padding: 10px;
                 background-color: #f4e5d1;
 
