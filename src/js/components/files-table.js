@@ -108,23 +108,14 @@ fmWrapper.addEventListener('click', function (e) {
     ) {
         doSelect(false);
         enableFooterRightButtons(false);
-        selectAllCheckboxUpdate();
     }
 });
 
 // ArrowUp and ArrowDown event
 window.addEventListener('keyup', function (e) {
-    var isArrowUp = (
-        e.key === 'Up' // IE compatibility
-        || e.key === 'ArrowUp'
-    );
-
-    var isArrowDown = (
-        e.key === 'Down' // IE compatibility
-        || e.key === 'ArrowDown'
-    );
-
-    var fileItems = getTableItems();
+    var isArrowUp = (e.key === 'Up' || e.key === 'ArrowUp'),
+        isArrowDown = (e.key === 'Down' || e.key === 'ArrowDown'),
+        fileItems = getTableItems();
 
     if ((isArrowUp || isArrowDown) && !fmWrapper.querySelector('.modal.show')) {
         var index = getSelectedIndex();
@@ -181,8 +172,9 @@ function enableFooterRightButtons(enable, filter) {
 }
 
 function getSelectedIndex() {
-    var items = getTableItems();
-    var selected = fmWrapper.querySelector('.files-table .file-item.selected');
+    var
+        items = getTableItems(),
+        selected = fmWrapper.querySelector('.files-table .file-item.selected');
 
     for (var i = 0; i < items.length; i++) {
         if (items[i] === selected) {
@@ -205,9 +197,9 @@ function selectByIndex(index) {
 }
 
 function selectAllCheckboxUpdate() {
-    // refresh state
-    var tableSelectedItems = getTableSelectedItems();
-    var fileItems = getTableItems();
+    var
+        tableSelectedItems = getTableSelectedItems(),
+        fileItems = getTableItems();
 
     // Check or uncheck the table select all checkbox
     tableSelectAllCheckbox.checked = (fileItems.length === tableSelectedItems.length);
