@@ -1,7 +1,6 @@
 import './global.js';
 import './polyfill.js';
 
-import './chmod.js';
 import './theme.js';
 import './loading.js';
 import './editor.js';
