@@ -57,9 +57,13 @@
                 &.dir-item[data-open=false]:hover, &.file-item:hover {
                     opacity: .8;
                 }
-
+                
                 &[data-open=false] {
                     > .icon-expend {
+                        display: none;
+                    }
+
+                    .sub-files {
                         display: none;
                     }
                 }

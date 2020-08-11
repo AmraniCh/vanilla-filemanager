@@ -3,11 +3,6 @@ import {on} from '../../helpers';
 var
     moveFileModal = fmWrapper.querySelector('#moveFileModal');
 
-function getFilesItems()
-{
-    return moveFileModal.querySelectorAll('.files-list .item');
-}
-
 // Select file item event
 on('click', '#moveFileModal .files-list .item', function (e) {
     var ele = e.target.closest('.item');
@@ -24,11 +19,25 @@ fmWrapper.querySelector('*[data-action="move"]')
 
 
 function selectFileItem(e) {
-    if (this === e.target.closest('.dir-item')) {
-        getFilesItems().forEach(function (item) {
-            item.classList.remove('selected');
+    var ele = e.target.closest('.dir-item');
+    if (this === ele) {
+        var selected = moveFileModal.querySelector('.files-list .item.selected');
+
+        if (selected) {
+            selected.classList.remove('selected');  
+        }
+
+        ele.parentNode.childNodes.forEach(function(node) {
+            if (node.nodeType === Node.ELEMENT_NODE && node !== ele) {
+                node.setAttribute('data-open', 'false');
+                node.querySelectorAll('.item[data-open="true"]').forEach(function(item){
+                    item.setAttribute('data-open', 'false');
+                });
+            }
         });
+    
         this.classList.add('selected');
+        this.setAttribute('data-open', 'true');
     }
 }
 
@@ -41,11 +50,9 @@ function updateSourceFileName() {
 }
 
 function updateDestinationFolder(e) {
-
     var destinationFolder = moveFileModal.querySelector('.destination');
 
     if (this === e.target.closest('.dir-item')) {
-
         var
             item = this,
             dist = item.querySelector('.name').textContent;
