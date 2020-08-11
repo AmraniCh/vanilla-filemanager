@@ -40,6 +40,10 @@
                 cursor: pointer;
                 transition: all .2s linear;
 
+                &.hide-in-search {
+                    display: none;
+                }
+
                 &.selected {
                     background-color: lighten($secondaryColor, 8%);
                     color: #FFF;

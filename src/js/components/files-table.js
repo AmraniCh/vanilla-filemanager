@@ -13,7 +13,7 @@ var
 
 // Dynamic DOM elements
 function getTableItems() {
-    return table.querySelectorAll('.file-item');
+    return table.querySelectorAll('.file-item:not(.hide-in-search)');
 }
 
 function getTableSelectedItems()
@@ -136,7 +136,6 @@ window.addEventListener('keyup', function (e) {
 });
 
 function doSelect(isSelectAll) {
-
     var allCheckboxes = getTableAllCheckboxes();
 
     tableSelectAllCheckbox.checked = isSelectAll;

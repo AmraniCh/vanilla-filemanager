@@ -1,14 +1,19 @@
+import {on} from '../../helpers';
+
 var
-    moveFileModal = fmWrapper.querySelector('#moveFileModal'),
-    filesItems = moveFileModal.querySelectorAll('.files-list .item');
+    moveFileModal = fmWrapper.querySelector('#moveFileModal');
+
+function getFilesItems()
+{
+    return moveFileModal.querySelectorAll('.files-list .item');
+}
 
 // Select file item event
-filesItems.forEach(function (item) {
-    item.addEventListener('click', function (e) {
-        [selectFileItem, updateDestinationFolder].forEach(function (func) {
-            func.call(this, e)
-        }.bind(this));
-    });
+on('click', '#moveFileModal .files-list .item', function (e) {
+    var ele = e.target.closest('.item');
+    [selectFileItem, updateDestinationFolder].forEach(function (func) {
+        func.call(this, e)
+    }.bind(ele));
 });
 
 // When opening the modal copy the selected file name from the table and put it in the 'source'
@@ -20,7 +25,7 @@ fmWrapper.querySelector('*[data-action="move"]')
 
 function selectFileItem(e) {
     if (this === e.target.closest('.dir-item')) {
-        filesItems.forEach(function (item) {
+        getFilesItems().forEach(function (item) {
             item.classList.remove('selected');
         });
         this.classList.add('selected');

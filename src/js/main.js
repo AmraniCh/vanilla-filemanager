@@ -9,6 +9,7 @@ import './editor.js';
 import './components/slidebar.js';
 import './components/files-table.js';
 import './components/modal.js';
+import './components/header-search';
 
 // Modal components
 import './components/modals/move-file-modal.js';
