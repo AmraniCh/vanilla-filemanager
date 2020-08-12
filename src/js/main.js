@@ -16,3 +16,4 @@ import './components/modals/move-file-modal.js';
 import './components/modals/remove-file-modal.js';
 import './components/modals/rename-file-modal.js';
 import './components/modals/permissions-modal.js';
+import './components/modals/upload-file-modal';
