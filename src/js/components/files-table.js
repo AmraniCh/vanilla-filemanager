@@ -152,22 +152,30 @@ function doSelect(isSelectAll) {
 function enableFooterRightButtons(enable, filter) {
     var exceptions = {
         // show all action for files
-        'file': [],
-        // Cannot edit or download files
-        'dir': ['edit', 'download'],
-        // Hide all actions except 'remove' when select more than one file
-        'collection': ['edit', 'rename', 'move', 'download', 'permissions', 'info'],
+        file: [],
+        // Cannot edit or download dirs
+        dir: ['edit', 'download'],
+        // Collections
+        collection: ['edit', 'rename', 'move', 'permissions', 'info'],
     };
 
+    // if is files only collection enable the download option
+    getTableSelectedItems().forEach(function (item) {
+        if (item.getAttribute('data-type') === 'dir') {
+           exceptions.collection.push('download');
+        }
+    });
+
     footerRightButtons.forEach(function (button) {
-        if (filter && exceptions[filter].indexOf(
-            button.getAttribute('data-action')
-        ) !== -1) {
+        if (filter && exceptions[filter].indexOf(button.getAttribute('data-action')) !== -1) {
             button.disabled = true;
         } else {
             button.disabled = !enable;
         }
     });
+
+   var index = exceptions.collection.indexOf('download');
+   exceptions.collection.splice(index, 1);
 }
 
 function getSelectedIndex() {
