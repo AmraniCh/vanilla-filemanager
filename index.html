@@ -840,18 +840,20 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="input-field">
-                        <label>
-                            uploading files to :
-                            <span class="uploading-folder badge">/</span>
-                        </label>
-                        <label class="btn-upload text-center" for="uploadFilesBtn">
-                            Select your files
-                            <input id="uploadFilesBtn" multiple type="file">
-                        </label>
-                    </div>
+                    <form id="uploadFilesForm">
+                        <div class="input-field">
+                            <label>
+                                uploading files to :
+                                <span class="uploading-folder badge">/</span>
+                            </label>
+                            <label class="btn-upload text-center" for="uploadFilesBtn">
+                                Select your files
+                                <input id="uploadFilesBtn" name="files" multiple type="file">
+                            </label>
+                        </div>
+                    </form>
                     <ul class="files-to-upload">
-                        <li class="file-item">
+                        <li class="file-item" data-name="mamak.zip">
                             <h3 class="name float-lt">mamak.zip</h3>
                             <span class="size">55 KB</span>
                             <button class="remove-upload-file btn-icon-reset" type="button">
@@ -870,7 +872,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="file-item">
+                        <li class="file-item" data-name="file1.zip">
                             <h3 class="name float-lt">file1.zip</h3>
                             <span class="size">2.5 MB</span>
                             <button class="remove-upload-file btn-icon-reset" type="button">
