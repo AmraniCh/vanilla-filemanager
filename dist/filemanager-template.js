@@ -128,54 +128,6 @@
         });
     }
 
-    var
-        chmod = [0, 0, 0],
-        rules = {
-            read: 4,
-            write: 2,
-            execute: 1
-        };
-
-    fmWrapper.querySelectorAll('.perm-table .checkbox')
-        .forEach(function (checkbox) {
-            checkbox.addEventListener('change', function () {
-                fmWrapper.querySelector('.numeric-chmod').textContent = getChmodString.call(this);
-            });
-    });
-
-    function getChmodString() {
-        var
-            group = this.getAttribute('data-group'),
-            action = this.getAttribute('data-action'),
-            checked = this.querySelector('input[type="checkbox"]').checked;
-
-        switch (group) {
-            case 'owner':
-                if (checked) {
-                    chmod[0] += rules[action];
-                } else {
-                    chmod[0] -= rules[action];
-                }
-                break;
-            case 'group':
-                if (checked) {
-                    chmod[1] += rules[action];
-                } else {
-                    chmod[1] -= rules[action];
-                }
-                break;
-            case 'others':
-                if (checked) {
-                    chmod[2] += rules[action];
-                } else {
-                    chmod[2] -= rules[action];
-                }
-                break;
-        }
-
-        return '0' + chmod.join('');
-    }
-
     // Checking in the local storage for the theme color
     if (localStorage.getItem('fm-theme')) {
         updateTheme(localStorage.getItem('fm-theme'));
@@ -366,7 +318,7 @@
 
     // Dynamic DOM elements
     function getTableItems() {
-        return table.querySelectorAll('.file-item');
+        return table.querySelectorAll('.file-item:not(.hide-in-search)');
     }
 
     function getTableSelectedItems()
@@ -489,7 +441,6 @@
     });
 
     function doSelect(isSelectAll) {
-
         var allCheckboxes = getTableAllCheckboxes();
 
         tableSelectAllCheckbox.checked = isSelectAll;
@@ -506,22 +457,30 @@
     function enableFooterRightButtons(enable, filter) {
         var exceptions = {
             // show all action for files
-            'file': [],
-            // Cannot edit or download files
-            'dir': ['edit', 'download'],
-            // Hide all actions except 'remove' when select more than one file
-            'collection': ['edit', 'rename', 'move', 'download', 'permissions', 'info'],
+            file: [],
+            // Cannot edit or download dirs
+            dir: ['edit', 'download'],
+            // Collections
+            collection: ['edit', 'rename', 'move', 'permissions', 'info'],
         };
 
+        // if is files only collection enable the download option
+        getTableSelectedItems().forEach(function (item) {
+            if (item.getAttribute('data-type') === 'dir') {
+               exceptions.collection.push('download');
+            }
+        });
+
         footerRightButtons.forEach(function (button) {
-            if (filter && exceptions[filter].indexOf(
-                button.getAttribute('data-action')
-            ) !== -1) {
+            if (filter && exceptions[filter].indexOf(button.getAttribute('data-action')) !== -1) {
                 button.disabled = true;
             } else {
                 button.disabled = !enable;
             }
         });
+
+       var index = exceptions.collection.indexOf('download');
+       exceptions.collection.splice(index, 1);
     }
 
     function getSelectedIndex() {
@@ -579,17 +538,33 @@
         });
     });
 
+    var searchInput = fmWrapper.querySelector('.header .search-form .search-input');
+
+    function getFileItems() {
+        return  fmWrapper.querySelectorAll('.files-table .file-item');
+    }
+
+    searchInput.addEventListener('input', function () {
+        var search = this.value.toLowerCase();
+        getFileItems().forEach(function (ele) {
+            var name = ele.querySelector('.file-name').textContent.toLowerCase();
+            if (name.indexOf(search) !== -1) {
+                ele.classList.remove('hide-in-search');
+            } else {
+                ele.classList.add('hide-in-search');
+            }
+        });
+    });
+
     var
-        moveFileModal = fmWrapper.querySelector('#moveFileModal'),
-        filesItems = moveFileModal.querySelectorAll('.files-list .item');
+        moveFileModal = fmWrapper.querySelector('#moveFileModal');
 
     // Select file item event
-    filesItems.forEach(function (item) {
-        item.addEventListener('click', function (e) {
-            [selectFileItem, updateDestinationFolder].forEach(function (func) {
-                func.call(this, e);
-            }.bind(this));
-        });
+    on('click', '#moveFileModal .files-list .item', function (e) {
+        var ele = e.target.closest('.item');
+        [selectFileItem, updateDestinationFolder].forEach(function (func) {
+            func.call(this, e);
+        }.bind(ele));
     });
 
     // When opening the modal copy the selected file name from the table and put it in the 'source'
@@ -600,11 +575,25 @@
 
 
     function selectFileItem(e) {
-        if (this === e.target.closest('.dir-item')) {
-            filesItems.forEach(function (item) {
-                item.classList.remove('selected');
+        var ele = e.target.closest('.dir-item');
+        if (this === ele) {
+            var selected = moveFileModal.querySelector('.files-list .item.selected');
+
+            if (selected) {
+                selected.classList.remove('selected');  
+            }
+
+            ele.parentNode.childNodes.forEach(function(node) {
+                if (node.nodeType === Node.ELEMENT_NODE && node !== ele) {
+                    node.setAttribute('data-open', 'false');
+                    node.querySelectorAll('.item[data-open="true"]').forEach(function(item){
+                        item.setAttribute('data-open', 'false');
+                    });
+                }
             });
+        
             this.classList.add('selected');
+            this.setAttribute('data-open', 'true');
         }
     }
 
@@ -617,11 +606,9 @@
     }
 
     function updateDestinationFolder(e) {
-
         var destinationFolder = moveFileModal.querySelector('.destination');
 
         if (this === e.target.closest('.dir-item')) {
-
             var
                 item = this,
                 dist = item.querySelector('.name').textContent;
@@ -659,13 +646,61 @@
             nameFor.textContent = tableSelectedItem.querySelector('.file-name').textContent;
         });
 
-    fmWrapper.querySelector('*[data-action="permissions"]')
-        .addEventListener('click', function () {
-            var
-                tableSelectedItem = fmWrapper.querySelector('.files-table .file-item.selected'),
-                filename = fmWrapper.querySelector('#permissionsModal .filename');
+    var
+        chmod = [0, 0, 0],
+        rules = {
+            read: 4,
+            write: 2,
+            execute: 1
+        };
 
-            filename.textContent = tableSelectedItem.querySelector('.file-name').textContent;
+    fmWrapper.querySelectorAll('.perm-table .checkbox').forEach(function (checkbox) {
+        checkbox.addEventListener('change', function () {
+            chmod = [0, 0, 0];
+
+            if (!checkbox.querySelector('input').checked) {
+                checkbox.querySelector('input').removeAttribute('checked');
+            }
+
+            fmWrapper.querySelectorAll('.perm-table .checkbox input[type="checkbox"]').forEach(function (input) {
+                var group = input.closest('.checkbox').getAttribute('data-group'),
+                    action = input.closest('.checkbox').getAttribute('data-action');
+
+                switch (group) {
+                    case 'owner':
+                        if (input.checked) {
+                            chmod[0] += rules[action];
+                        }
+                        break;
+                    case 'group':
+                        if (input.checked) {
+                            chmod[1] += rules[action];
+                        }
+                        break;
+                    case 'others':
+                        if (input.checked) {
+                            chmod[2] += rules[action];
+                        }
+                        break;
+                }
+            });
+
+            fmWrapper.querySelector('.permissions-modal .numeric-chmod').textContent = '0' + chmod.join('');
         });
+    });
+
+    fmWrapper.querySelector('*[data-action="permissions"]').addEventListener('click', function () {
+        var
+            tableSelectedItem = fmWrapper.querySelector('.files-table .file-item.selected'),
+            filename = fmWrapper.querySelector('#permissionsModal .filename');
+
+        filename.textContent = tableSelectedItem.querySelector('.file-name').textContent;
+    });
+
+    // Close button
+    on('click', '.remove-upload-file', function (e) {
+        var fileItem = e.target.closest('.file-item');
+        fileItem.remove();
+    });
 
 }());

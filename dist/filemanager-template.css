@@ -610,8 +610,6 @@ body {
   .fm-wrapper .move-file-modal .files-section .files-list > li.dir-item {
     padding-left: 10px;
     padding-right: 10px; }
-  .fm-wrapper .move-file-modal .files-section .files-list li.dir-item:not(:last-of-type) {
-    margin-bottom: 5px; }
   .fm-wrapper .move-file-modal .files-section .files-list li.dir-item.selected > .name {
     color: #FFF; }
   .fm-wrapper .move-file-modal .files-section .files-list li.dir-item.selected:before {
@@ -626,7 +624,7 @@ body {
   .fm-wrapper .move-file-modal .files-section .files-list li.dir-item.selected > svg path {
     fill: #FFF; }
   .fm-wrapper .move-file-modal .files-section .files-list li.dir-item .sub-files {
-    margin-top: 10px; }
+    margin-top: 5px; }
 
 .fm-wrapper .remove-file-modal .filename {
   white-space: pre; }
@@ -801,6 +799,8 @@ body {
       cursor: pointer;
       -webkit-transition: all .2s linear;
       transition: all .2s linear; }
+      .fm-wrapper .table-section table.files-table tr.file-item.hide-in-search {
+        display: none; }
       .fm-wrapper .table-section table.files-table tr.file-item.selected {
         background-color: #29a8e7;
         color: #FFF; }
@@ -878,6 +878,8 @@ body {
       .fm-wrapper .files-section .files-list li.item.dir-item[data-open=false]:hover, .fm-wrapper .files-section .files-list li.item.file-item:hover {
         opacity: .8; }
       .fm-wrapper .files-section .files-list li.item[data-open=false] > .icon-expend {
+        display: none; }
+      .fm-wrapper .files-section .files-list li.item[data-open=false] .sub-files {
         display: none; }
       .fm-wrapper .files-section .files-list li.item[data-open=true] > .icon-contract {
         display: none; }
