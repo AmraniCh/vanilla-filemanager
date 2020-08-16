@@ -593,6 +593,9 @@ body {
           width: 100%;
           height: 20px;
           background-color: #1793d1; }
+    .fm-wrapper .upload-modal .files-to-upload .file-item .file-error {
+      margin-top: 10px;
+      color: #bd373a; }
 
 .fm-wrapper .move-file-modal .moving-to {
   font-weight: normal; }
