@@ -1,6 +1,6 @@
 .fm-wrapper {
 
-    .sidebar .files-section,
+    .sidebar,
     .main-panel .table-section {
         position: relative;
     }
@@ -41,5 +41,10 @@
             animation: loaderAnimation .5s linear infinite;
             z-index: 9;
         }
+    }
+
+    .sidebar .loader {
+        top: $headerHeight !important;
+        bottom: $bottomHeight;
     }
 }

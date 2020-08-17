@@ -9,6 +9,14 @@
 @import "base/reset";
 @import "base/utilities";
 
+// Layout
+@import "modules/sidebar";
+@import "modules/header";
+@import "modules/toolbar";
+@import "modules/table-section";
+@import "modules/footer";
+@import "modules/global";
+
 // Components
 @import "components/buttons";
 @import "components/input";
@@ -27,14 +35,6 @@
 @import "components/modals/move-file-modal";
 @import "components/modals/remove-file-modal";
 @import "components/modals/rename-file-modal";
-
-// Layout
-@import "modules/sidebar";
-@import "modules/header";
-@import "modules/toolbar";
-@import "modules/table-section";
-@import "modules/footer";
-@import "modules/global";
 
 // themes
 @import "themes/themes";
