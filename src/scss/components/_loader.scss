@@ -1,8 +1,18 @@
 .fm-wrapper {
 
     .sidebar,
-    .main-panel .table-section {
+    .main-panel {
         position: relative;
+    }
+
+    .table-section .loader {
+        top: $headerHeight + $toolbarHeight;
+        bottom: $footerHeight;
+    }
+
+    .sidebar .loader {
+        top: $headerHeight;
+        bottom: $bottomHeight;
     }
 
     .loader {
@@ -41,10 +51,5 @@
             animation: loaderAnimation .5s linear infinite;
             z-index: 9;
         }
-    }
-
-    .sidebar .loader {
-        top: $headerHeight !important;
-        bottom: $bottomHeight;
     }
 }
