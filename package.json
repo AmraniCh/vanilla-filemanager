@@ -1,7 +1,7 @@
 {
-  "name": "filemanager-template",
+  "name": "filemanager-template-vanilla",
   "version": "1.0.0",
-  "description": "filemanager-template is a lightweight, cross-platform template written in HTML5 & vanilla javascript and sass without any dependencies",
+  "description": "A simple filemanager template written in HTML5, vanilla javascript, and sass without any dependencies and frameworks",
   "scripts": {
     "css-compile": "node-sass src/scss/style.scss dist/filemanager-template.css",
     "css-prefix": "postcss dist/filemanager-template.css --replace --config postcss.config.js",
@@ -20,10 +20,13 @@
   },
   "keywords": [
     "filemanager",
-    "template"
+    "template",
+    "html5",
+    "sass",
+    "vanilla-javascript"
   ],
-  "author": "EL AMRANI CHAKIR",
-  "license": "ISC",
+  "author": "El Amrani Chakir",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ELAMRANI744/filemanager-template/issues"
   },
