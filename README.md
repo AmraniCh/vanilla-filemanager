@@ -1,8 +1,8 @@
-# filemanager-template
+# filemanager-template-vanilla
 
 # Introduction
 
-filemanager-template is a lightweight, cross-browser template written in HTML5 & vanilla javascript and sass without any dependencies and frameworks. 
+filemanager-template is a simple filemanager template written in HTML5, vanilla javascript, and sass without any dependencies and frameworks.
 
 ![](https://user-images.githubusercontent.com/49124992/87870746-ec072e80-c9a2-11ea-8bd1-480d1050bee8.gif)
 
@@ -36,7 +36,7 @@ fmEditor.add('Hello world!');
 
 ## Modals error alerts
 
-When an operation fails some times, and you want to show the server side error, so the user know what happen.
+When an operation (ajax request) fails some times, and you want to show the server-side error, so the user knows what happen.
 
 For that purpose all modals components haves an error alert div inside their body, to show the alert just add class 'show' to the div.
 
@@ -86,16 +86,16 @@ You can change the default theme using the `dist/custom-theme.css`, just change 
 
 ## Using inline svgs
 
-The HTML Markup haves a big lines of code if you notice, that because of inline svgs, so why we use an inline svgs instead of icon fonts ?, this is some important advantages that's let us to make this choice.
+The HTML Markup haves big lines of code if you notice, that because of inline svgs, so why we use inline svgs instead of icon fonts? There are some important advantages that let us make this choice.
 
 * Flickering issues with icon fonts, the inline svgs render along with the DOM, whereas the icon fonts load after the rest of the other content, and users may see some flickering before loading completely the page, using svgs solves this problem.
 
-* Fewer http requests, as svgs are part of the DOM no need for another http request, unlike icon fonts.
+* Fewer HTTP requests, as svgs are part of the DOM no need for another HTTP request, unlike icon fonts.
 
 # IE Compatibility
 
-In regard to support some legacy browsers like IE9, we use polyfills to mimic the functionality of some js methods, however the template working just fine in IE9 and above. 
+In regard to support some legacy browsers like IE9, we use polyfills to mimic the functionality of some js methods, however, the template working just fine in IE9 and above. 
 
 # Contribution
 
-If you find some bugs or you have some suggestions to improve this project, or just you want to improve and practice you skills in javascript and sass then this is a good place to, take a lock in `TODO.md`, there is a lot of things to improve and features to add, however if you want to contribute fork the repo and send a pull request with your feature to add, thank you!.
+If you find some bugs or you have some suggestions to improve this project, or just you want to improve and practice your skills in javascript and sass then this is a good place to, take a look in `TODO.md`, there is a lot of things to improve and features to add, however, if you want to contribute fork the repo and send a pull request with your feature to add, thank you!.
