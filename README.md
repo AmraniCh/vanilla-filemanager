@@ -13,6 +13,10 @@ filemanager-template is a simple filemanager template written in HTML5, vanilla 
 * Integrated File Editor (no syntax highlighting).
 * Optimized for ajax applications.
 
+# Applications uses this template
+
+* [ftp-filemanager](https://github.com/AmraniCh/ftp-filemanager)
+
 # Usage
 
 Use the HTML Markup in `index.html` or `dist/index.html`(no comments) and include the distribution files in `dist` folder to your application.
