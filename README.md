@@ -1,6 +1,6 @@
 # vanilla-filemanager
 
-> filemanager-template is a simple filemanager template written in HTML5, vanilla javascript, and sass without any dependencies and frameworks.
+> A simple filemanager template written in HTML5, vanilla javascript, and sass without any dependencies and frameworks.
 
 ![](https://user-images.githubusercontent.com/49124992/87870746-ec072e80-c9a2-11ea-8bd1-480d1050bee8.gif)
 
